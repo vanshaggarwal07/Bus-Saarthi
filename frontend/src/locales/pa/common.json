@@ -1,0 +1,100 @@
+{
+  "appName": "ਪੰਜਾਬ ਯਾਤਰਾ",
+  "appTagline": "ਸਮਾਰਟ ਜਨ ਪਰਿਵਹਨ",
+  "nav.liveTracking": "ਲਾਈਵ ਟ੍ਰੈਕਿੰਗ",
+  "nav.driverPortal": "ਡਰਾਈਵਰ ਪੋਰਟਲ",
+  "nav.municipalPortal": "ਨਗਰ ਨਿਗਮ ਪੋਰਟਲ",
+  "nav.tickets": "ਟਿਕਟਾਂ",
+  "sos": "ਐਮਰਜੈਂਸੀ SOS",
+
+  "hero.title.line1": "ਸਮਾਰਟ ਯਾਤਰਾ",
+  "hero.title.line2": "ਸਾਰੇ ਪੰਜਾਬ ਵਿੱਚ",
+  "hero.subtitle": "ਰੀਅਲ-ਟਾਈਮ ਬੱਸ ਟ੍ਰੈਕਿੰਗ, ਸਹੀ ETA, ਅਤੇ ਪੰਜਾਬ ਦੇ ਜਨ ਪਰਿਵਹਨ ਸਿਸਟਮ ਲਈ ਪੂਰੀ ਰੂਟ ਜਾਣਕਾਰੀ।",
+
+  "search.tabs.route": "ਰੂਟ",
+  "search.tabs.pnr": "PNR ਸਥਿਤੀ",
+  "search.tabs.bus": "ਬੱਸ ਨੰਬਰ",
+
+  "search.route.from": "ਤੋਂ (ਉਦਾਹ., ਅੰਮ੍ਰਿਤਸਰ)",
+  "search.route.to": "ਤੱਕ (ਉਦਾਹ., ਲੁਧਿਆਣਾ)",
+  "search.route.cta": "ਲਾਈਵ ਮੈਪ ਵੇਖੋ",
+
+  "search.bus.placeholder": "ਬੱਸ ਨੰਬਰ ਦਰਜ ਕਰੋ (ਉਦਾਹ., PB08AB1234)",
+  "search.bus.cta": "ਬੱਸ ਟ੍ਰੈਕ ਕਰੋ",
+
+  "search.pnr.placeholder": "10 ਅੰਕਾਂ ਦਾ PNR ਨੰਬਰ ਦਰਜ ਕਰੋ",
+  "search.pnr.cta": "PNR ਸਥਿਤੀ ਚੈੱਕ ਕਰੋ",
+
+  "stats.routes": "ਰੂਟ",
+  "stats.liveTracking": "ਲਾਈਵ ਟ੍ਰੈਕਿੰਗ",
+  "stats.onTime": "ਸਮੇਂ ਤੇ",
+
+  "features.title": "ਪੰਜਾਬ ਯਾਤਰਾ ਕਿਉਂ ਚੁਣੋ?",
+  "features.subtitle": "ਪੰਜਾਬ ਦੇ ਜਨ ਪਰਿਵਹਨ ਲਈ ਖਾਸ ਤੌਰ 'ਤੇ ਬਣਾਇਆ ਗਿਆ, ਜੋ ਸਥਾਨਕ ਯਾਤਰੀਆਂ ਲਈ ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ ਖ਼ਾਸੀਤਾਂ ਦਿੰਦਾ ਹੈ।",
+  "features.items": {
+    "gps.title": "ਰੀਅਲ-ਟਾਈਮ GPS ਟ੍ਰੈਕਿੰਗ",
+    "gps.desc": "ਹਰ ਕੁਝ ਸੈਕਿੰਡ ਵਿੱਚ ਸਹੀ ਟਿਕਾਣਾ ਅਪਡੇਟਾਂ ਨਾਲ ਆਪਣੀ ਬੱਸ ਨੂੰ ਲਾਈਵ ਮੈਪ 'ਤੇ ਟ੍ਰੈਕ ਕਰੋ।",
+    "eta.title": "ਸਹੀ ETA",
+    "eta.desc": "ਮੌਜੂਦਾ ਟ੍ਰੈਫਿਕ ਅਤੇ ਰੂਟ ਹਾਲਤ ਦੇ ਆਧਾਰ 'ਤੇ ਸਹੀ ਪਹੁੰਚ ਸਮਾਂ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    "route.title": "ਪੂਰੀ ਰੂਟ ਜਾਣਕਾਰੀ",
+    "route.desc": "ਵਿਸਥਾਰਤ ਰੂਟ ਮੈਪ, ਸਟਾਪ ਟਿਕਾਣੇ ਅਤੇ ਸਮਾਂ-ਸਾਰਣੀ ਜਾਣਕਾਰੀ।",
+    "mobile.title": "ਮੋਬਾਈਲ ਲਈ ਅਨੁਕੂਲ",
+    "mobile.desc": "ਇੰਟਿਊਟਿਵ ਟਚ ਕਂਟਰੋਲ ਨਾਲ ਮੋਬਾਈਲ-ਫਰਸਟ ਤਜਰਬੇ ਲਈ ਡਿਜ਼ਾਇਨ ਕੀਤਾ ਗਿਆ।",
+    "bandwidth.title": "ਘੱਟ ਬੈਂਡਵਿਡਥ 'ਤੇ ਵੀ",
+    "bandwidth.desc": "ਛੋਟੇ ਕਸਬਿਆਂ ਵਿੱਚ 2G ਕਨੈਕਸ਼ਨ 'ਤੇ ਵੀ ਸਮੂਥ ਤੌਰ 'ਤੇ ਕੰਮ ਕਰਦਾ ਹੈ।",
+    "reliable.title": "ਭਰੋਸੇਯੋਗ ਸੇਵਾ",
+    "reliable.desc": "ਲਗਾਤਾਰ ਐਕਸੇਸ ਲਈ 99.9% ਅਪਟਾਈਮ ਨਾਲ ਭਰੋਸੇਯੋਗ ਸੇਵਾ।"
+  },
+
+  "footer.about": "ਪੰਜਾਬ ਦੇ ਜਨ ਪਰਿਵਹਨ ਨੂੰ ਹਰ ਕਿਸੇ ਲਈ ਹੋਰ ਸਮਾਰਟ, ਸੁਰੱਖਿਅਤ ਅਤੇ ਭਰੋਸੇਯੋਗ ਬਣਾਉਣਾ।",
+  "footer.services": "ਸੇਵਾਵਾਂ",
+  "footer.services.items": {
+    "tracking": "ਰੀਅਲ-ਟਾਈਮ ਟ੍ਰੈਕਿੰਗ",
+    "planning": "ਰੂਟ ਯੋਜਨਾ",
+    "eta": "ETA ਅਨੁਮਾਨ",
+    "schedules": "ਬੱਸ ਸਮਾਂ-ਸਾਰਣੀ"
+  },
+  "footer.support": "ਸਹਾਇਤਾ",
+  "footer.support.items": {
+    "help": "ਹੈਲਪ ਸੈਂਟਰ",
+    "contact": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
+    "report": "ਸਮੱਸਿਆ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+    "feedback": "ਫੀਡਬੈਕ"
+  },
+  "footer.contact": "ਸੰਪਰਕ",
+  "footer.phone": "+91 98765 43210",
+  "footer.email": "support@punjabyatra.com",
+  "footer.location": "ਚੰਡੀਗੜ੍ਹ, ਪੰਜਾਬ",
+  "footer.copyright": "© 2025 ਪੰਜਾਬ ਯਾਤਰਾ",
+
+  "tickets.back": "ਵਾਪਸ",
+  "tickets.title": "ਟਿਕਟ ਬੁਕਿੰਗ",
+  "tickets.subtitle": "ਦੋ ਟਿਕਾਣਿਆਂ ਵਿਚਕਾਰ ਬੱਸਾਂ ਖੋਜੋ ਅਤੇ ਭੁਗਤਾਨ ਕਰੋ",
+  "tickets.fromPlaceholder": "ਤੋਂ (ਉਦਾਹ., ਅੰਮ੍ਰਿਤਸਰ)",
+  "tickets.toPlaceholder": "ਤੱਕ (ਉਦਾਹ., ਲੁਧਿਆਣਾ)",
+  "tickets.search": "ਬੱਸਾਂ ਖੋਜੋ",
+  "tickets.searching": "ਖੋਜ جاري...",
+  "tickets.noResults": "ਹਾਲੇ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ। From ਅਤੇ To ਦਰਜ ਕਰਕੇ ਖੋਜੋ।",
+  "tickets.route": "ਰੂਟ",
+  "tickets.depart": "ਰਵਾਨਗੀ",
+  "tickets.arrive": "ਪਹੁੰਚ",
+  "tickets.viewFare": "ਕਿਰਾਇਆ ਵੇਖੋ ਅਤੇ ਖਰੀਦੋ",
+
+  "payment.title": "ਭੁਗਤਾਨ",
+  "payment.subtitle": "ਵੇਰਵੇ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਭੁਗਤਾਨ ਕਰੋ",
+  "payment.bus": "ਬੱਸ",
+  "payment.from": "ਤੋਂ",
+  "payment.to": "ਤੱਕ",
+  "payment.totalFare": "ਕੁੱਲ ਕਿਰਾਇਆ",
+  "payment.change": "ਚੋਣ ਬਦਲੋ",
+  "payment.proceed": "ਭੁਗਤਾਨ ਲਈ ਅੱਗੇ ਵਧੋ",
+
+  "success.title": "ਭੁਗਤਾਨ ਸਫਲ",
+  "success.subtitle": "ਤੁਹਾਡਾ ਟਿਕਟ ਬੁੱਕ ਹੋ ਗਿਆ ਹੈ।",
+  "success.bus": "ਬੱਸ",
+  "success.from": "ਤੋਂ",
+  "success.to": "ਤੱਕ",
+  "success.paid": "ਭੁਗਤਾਨ",
+  "success.goHome": "ਹੋਮ ਤੇ ਜਾਓ",
+  "success.bookAnother": "ਹੋਰ ਬੁੱਕ ਕਰੋ"
+}
