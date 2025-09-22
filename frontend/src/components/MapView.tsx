@@ -99,7 +99,7 @@ export default function MapView() {
   const backoff = useRef(BASE_INTERVAL);
   const userLocationMarkerRef = useRef<mapboxgl.Marker | null>(null);
   const searchFitBoundsDone = useRef(false);
-
+const lastDrawnRouteRef = useRef<string | null>(null);
 
   // --- State ---
   const [buses, setBuses] = useState<BusData[]>([]);
@@ -372,29 +372,140 @@ function startRouteAnimation(routeCoords: [number, number][], marker: mapboxgl.M
     routeAnimatorRef.current = null;
   };
 }
-  // const normalizeCoords = (coords?: [number, number] | null): [number, number] | null => {
-  //   if (!coords || coords.length !== 2) return null;
-  //   const a = coords[0], b = coords[1];
-  //   if (Math.abs(a) > 90 && Math.abs(a) <= 180 && Math.abs(b) <= 90) return [a, b];
-  //   if (Math.abs(b) > 90 && Math.abs(b) <= 180 && Math.abs(a) <= 90) return [b, a];
-  //   if (Math.abs(b) <= 90) return [a, b];
-  //   return [b, a];
-  // };
+ // ...existing code...
+// add helper (near haversineMeters / findNearestPointOnRoute helpers)
+const coordsAlmostEqual = (a?: [number, number] | null, b?: [number, number] | null, toleranceMeters = 50) => {
+  if (!a || !b) return false;
+  try {
+    return haversineMeters(a, b) <= toleranceMeters;
+  } catch {
+    return false;
+  }
+};
+// ...existing code...
 
-  const handleBusSelect = useCallback((bus: BusData) => {
-    setSelectedBus(bus);
-    searchFitBoundsDone.current = true;
-    try {
-      const center = normalizeCoords(bus.coordinates);
-      if (center && map.current) {
-        map.current.flyTo({ center, zoom: 14, speed: 1.2 });
-      } else {
-        if (map.current && userLocation) map.current.flyTo({ center: userLocation, zoom: 12, speed: 1.2 });
-      }
-    } catch (err) {
-      console.error('handleBusSelect flyTo error', err);
+// Replace the existing effect that syncs selectedBus with buses with this:
+useEffect(() => {
+  if (!selectedBus) return;
+  const updated = buses.find(b => b._id === selectedBus._id || b.busNumber === selectedBus.busNumber);
+  if (updated) {
+    const coordsChanged = !coordsAlmostEqual(updated.coordinates as [number, number], selectedBus.coordinates as [number, number], 5);
+    const headingChanged = Math.abs((updated.heading || 0) - (selectedBus.heading || 0)) > 2;
+    const statusChanged = updated.isAtStop !== selectedBus.isAtStop || updated.status !== selectedBus.status;
+    if (coordsChanged || headingChanged || statusChanged) {
+      setSelectedBus(updated);
     }
-  }, [userLocation]);
+  }
+}, [buses, selectedBus]);
+
+useEffect(() => {
+  if (!selectedBus) {
+    setRouteSteps([]);
+    setRouteSummary(null);
+    setShowRouteInsights(false);
+    (async () => {
+      const routeSourceClear = await ensureRouteSource();
+      routeSourceClear?.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
+    })();
+    return;
+  }
+  // ...existing code...
+}, [selectedBus]);
+// Replace the existing effect that moves/creates selectedBusMarker to guard map moves:
+useEffect(() => {
+  if (!map.current) return;
+  if (!selectedBus) {
+    if (selectedBusMarkerRef.current) {
+      selectedBusMarkerRef.current.remove();
+      selectedBusMarkerRef.current = null;
+    }
+    return;
+  }
+  const routeCoords = selectedBus.routeGeometry?.coordinates as [number, number][] | undefined;
+  const driverPos = selectedBus.coordinates as [number, number] | undefined;
+  if (!driverPos || driverPos.length !== 2) return;
+  let displayPosition = driverPos;
+  if (routeCoords && routeCoords.length >= 2) {
+    const snap = findNearestPointOnRoute(routeCoords, driverPos);
+    displayPosition = snap.point;
+  }
+  if (!selectedBusMarkerRef.current) {
+    const el = createBusMarkerElement(selectedBus.status, selectedBus.isAtStop, selectedBus.heading);
+    selectedBusMarkerRef.current = new mapboxgl.Marker({ element: el, anchor: 'center' })
+      .setLngLat(displayPosition)
+      .addTo(map.current);
+    selectedBusMarkerRef.current.getElement().addEventListener('click', () => handleBusSelect(selectedBus));
+  } else {
+    selectedBusMarkerRef.current.setLngLat(displayPosition);
+    const el = selectedBusMarkerRef.current.getElement();
+    if (el) {
+      const label = el.querySelector<HTMLElement>('.bus-status-label');
+      if (label) {
+        label.textContent = (selectedBus.isAtStop ? 'STOPPED' : (selectedBus.status || 'MOVING')).toUpperCase();
+        label.style.background = getStatusColor(selectedBus.status, selectedBus.isAtStop);
+      }
+      el.style.color = getStatusColor(selectedBus.status, selectedBus.isAtStop);
+      const icon = el.querySelector<HTMLElement>('.bus-marker-icon');
+      if (icon) icon.style.transform = `rotate(${selectedBus.heading ?? 0}deg)`;
+    }
+  }
+
+  // Only move the map if the center is far from the target or zoom is below threshold
+  try {
+    if (selectedBus && map.current) {
+      const center = map.current.getCenter();
+      const centerArr: [number, number] = [center.lng, center.lat];
+      const distMeters = haversineMeters(centerArr, displayPosition);
+      const currentZoom = map.current.getZoom();
+      const ZOOM_TARGET = 14;
+      const DIST_THRESHOLD = 50; // meters
+
+      if (distMeters > DIST_THRESHOLD || currentZoom < ZOOM_TARGET) {
+        map.current.easeTo({ center: displayPosition, zoom: Math.max(currentZoom, ZOOM_TARGET), duration: 800 });
+      } else {
+        // do not refocus — keep current view
+      }
+    }
+  } catch (e) { /* ignore */ }
+}, [selectedBus, buses, handleBusSelect]);
+
+// Replace handleBusSelect to avoid unnecessary flyTo when already close
+function handleBusSelect(bus: BusData) {
+  setSelectedBus(bus);
+  searchFitBoundsDone.current = true;
+  try {
+    const center = normalizeCoords(bus.coordinates);
+    if (center && map.current) {
+      const currentCenter = map.current.getCenter();
+      const centerArr: [number, number] = [currentCenter.lng, currentCenter.lat];
+      const distMeters = haversineMeters(centerArr, center);
+      const ZOOM_TARGET = 14;
+      if (distMeters > 50 || map.current.getZoom() < ZOOM_TARGET) {
+        map.current.flyTo({ center, zoom: ZOOM_TARGET, speed: 1.2 });
+      }
+    } else {
+      if (map.current && userLocation) map.current.flyTo({ center: userLocation, zoom: 12, speed: 1.2 });
+    }
+  } catch (err) {
+    console.error('handleBusSelect flyTo error', err);
+  }
+}
+// ...existing code...
+
+  // const handleBusSelect = useCallback((bus: BusData) => {
+  //   setSelectedBus(bus);
+  //   searchFitBoundsDone.current = true;
+  //   try {
+  //     const center = normalizeCoords(bus.coordinates);
+  //     if (center && map.current) {
+  //       map.current.flyTo({ center, zoom: 14, speed: 1.2 });
+  //     } else {
+  //       if (map.current && userLocation) map.current.flyTo({ center: userLocation, zoom: 12, speed: 1.2 });
+  //     }
+  //   } catch (err) {
+  //     console.error('handleBusSelect flyTo error', err);
+  //   }
+  // }, [userLocation]);
 
 useEffect(() => {
     if (!map.current) return;
@@ -462,11 +573,11 @@ useEffect(() => {
         setBuses([]);
         setSelectedBus(null);
         setSearchError('Bus not found.');
-        const routeSource = map.current?.getSource('route') as mapboxgl.GeoJSONSource | undefined;
-      routeSource?.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
-       stopMarkersRef.current.forEach(m=>m.remove());
+        const routeSource = await ensureRouteSource();
+        routeSource?.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
+        stopMarkersRef.current.forEach(m=>m.remove());
         stopMarkersRef.current = [];  
-      return;
+        return;
       }
       if (!resp.ok) throw new Error(`Server ${resp.status}`);
       const data = await resp.json();
@@ -480,7 +591,8 @@ useEffect(() => {
           const coordsNormalized = (rawCoords || []).map((c: any) => normalizeCoords(c as [number, number])).filter(Boolean) as [number, number][];
          const routeSource = map.current?.getSource('route') as mapboxgl.GeoJSONSource | undefined;
         if (routeSource && bus.routeGeometry?.coordinates && bus.routeGeometry.coordinates.length > 1) {
-          routeSource.setData({
+          // use routeSource which comes from ensureRouteSource
+          await routeSource.setData({
             type: 'Feature',
             properties: {},
             geometry: { type: 'LineString', coordinates: bus.routeGeometry.coordinates }
@@ -488,14 +600,12 @@ useEffect(() => {
          try { map.current?.moveLayer('route'); } catch (e) {}
             const bounds = new mapboxgl.LngLatBounds(coordsNormalized[0], coordsNormalized[0]);
             coordsNormalized.forEach((c: any) => bounds.extend(c));
-            map.current?.fitBounds(bounds, { padding: { top: 100, bottom: 50, left: 50, right: 450 } });
           } else {
-          // no route geometry — clear route and just fly to bus coordinates
-          const routeSource = map.current?.getSource('route') as mapboxgl.GeoJSONSource | undefined;
+          const routeSource = await ensureRouteSource();
           routeSource?.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
           stopMarkersRef.current.forEach(m=>m.remove());
-            stopMarkersRef.current = [];
-          if (map.current && Array.isArray(bus.coordinates)) {
+          stopMarkersRef.current = [];
+ if (map.current && Array.isArray(bus.coordinates)) {
            const center = normalizeCoords(bus.coordinates as [number, number]) ?? (bus.coordinates as [number, number]);
             map.current.flyTo({ center: bus.coordinates as [number, number], zoom: 13 });
           }
@@ -536,8 +646,8 @@ useEffect(() => {
         setIsFiltered(true);
 
        // pick first bus that has route geometry and draw it
-    const routeBus = found.find((b: any) => b.routeGeometry?.coordinates && b.routeGeometry.coordinates.length > 1);
-    const routeSource = map.current?.getSource('route') as mapboxgl.GeoJSONSource | undefined;
+   const routeBus = found.find((b: any) => b.routeGeometry?.coordinates && b.routeGeometry.coordinates.length > 1);
+    const routeSource = await ensureRouteSource();
     if (routeBus && routeSource) {
       try {
         const rawCoords = routeBus.routeGeometry.coordinates as [number, number][];
@@ -551,7 +661,8 @@ useEffect(() => {
         } else {
           routeSource.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
           if (found.length === 0) setSearchError('No buses found for that route');
-        }} catch (err) {
+        }
+      } catch (err) {
         console.error('Failed to draw route for search', err);
       }
     } else {
@@ -559,7 +670,7 @@ useEffect(() => {
       routeSource?.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
       stopMarkersRef.current.forEach(m=>m.remove());
       stopMarkersRef.current = [];
-      if (found.length === 0) setSearchError('No buses found for that route');
+      if (found.length === 0) setSearchError('No drivers found for that route');
     }
     } catch (err: any) {
         console.error('Route search error:', err);
@@ -599,6 +710,38 @@ useEffect(() => {
       setTimeout(() => pollOnce(), backoff.current);
     }
   }, []);
+async function ensureRouteSource(): Promise<mapboxgl.GeoJSONSource | null> {
+  if (!map.current) return null;
+  try {
+    // wait for style to be ready if needed
+    if (!map.current.isStyleLoaded || !map.current.isStyleLoaded()) {
+      await new Promise<void>((resolve) => map.current!.once('load', () => resolve()));
+    }
+    // if source already present return it
+    const existing = map.current.getSource('route') as mapboxgl.GeoJSONSource | undefined;
+    if (existing) return existing;
+    // create source + layer (guarded against double-add)
+    try {
+      map.current.addSource('route', {
+        type: 'geojson',
+        data: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } }
+      });
+      map.current.addLayer({
+        id: 'route',
+        type: 'line',
+        source: 'route',
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: { 'line-color': '#1E90FF', 'line-width': 6, 'line-opacity': 1 }
+      });
+    } catch (e) {
+      // adding source/layer may throw if concurrently added; ignore
+    }
+    return map.current.getSource('route') as mapboxgl.GeoJSONSource | null;
+  } catch (err) {
+    console.warn('ensureRouteSource failed', err);
+    return null;
+  }
+}
 
   
   const clearSelection = useCallback(() => {
@@ -850,81 +993,91 @@ useEffect(() => {
     });
   }, [buses, selectedBus, handleBusSelect]);
 
-  // THIS IS THE EFFECT TO CHECK
-  useEffect(() => {
-      if (!map.current) return;
-      const routeSource = map.current.getSource('route') as mapboxgl.GeoJSONSource | undefined;
-      if (!routeSource) {
-          console.error("Map route source not found!");
-          return;
+ useEffect(() => {
+  if (!map.current) return;
+  (async () => {
+    const routeSource = await ensureRouteSource();
+    if (!routeSource) return; // style/source not ready yet
+    // --- existing effect logic below unchanged, but now safe to call routeSource.setData() ---
+    // decide which route we should draw (selectedBus preferred, then a bus from search results)
+    let routeToDraw: [number, number][] | null = null;
+    let busForStops: BusData | null = null;
+    if (selectedBus && selectedBus.routeGeometry?.coordinates?.length > 1) {
+      routeToDraw = selectedBus.routeGeometry.coordinates as [number, number][];
+      busForStops = selectedBus;
+    } else if (isFiltered && buses.length > 0) {
+      const busWithRoute = buses.find(b => b.routeGeometry?.coordinates?.length > 1);
+      if (busWithRoute) {
+        routeToDraw = busWithRoute.routeGeometry!.coordinates as [number, number][];
+        busForStops = busWithRoute;
+      }
+    }
+
+    const newKey = routeToDraw ? JSON.stringify(routeToDraw) : null;
+    if (newKey && lastDrawnRouteRef.current === newKey) {
+      if (stopMarkersRef.current.length === 0 && busForStops) {
+        const allStops = [busForStops.source, ...busForStops.stops, busForStops.destination];
+        allStops.forEach((stop, index) => {
+          if (stop?.coords) {
+            const isPast = busForStops!.currentStopIndex > index;
+            const el = createStopMarkerElement(isPast);
+            const coords = normalizeCoords(stop.coords as [number, number]);
+            if (coords) {
+              const stopMarker = new mapboxgl.Marker({ element: el }).setLngLat(coords).addTo(map.current!);
+              stopMarkersRef.current.push(stopMarker);
+            }
+          }
+        });
+      }
+      return;
+    }
+
+    stopMarkersRef.current.forEach(m => m.remove());
+    stopMarkersRef.current = [];
+
+    if (routeToDraw) {
+      try {
+        routeSource.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: routeToDraw } });
+      } catch (e) {
+        console.warn('Failed to set route source data', e);
       }
 
-      // --- Start Debugging Logs ---
-      console.log("%c--- Route Drawing Effect Triggered ---", "color: blue; font-weight: bold;");
-      console.log(`State: isFiltered=${isFiltered}, selectedBus=${selectedBus?.busNumber || 'null'}, buses count=${buses.length}`);
-      // --- End Debugging Logs ---
-      
-      stopMarkersRef.current.forEach(marker => marker.remove());
-      stopMarkersRef.current = [];
-
-      let routeToDraw: [number, number][] | null = null;
-      let busForStops: BusData | null | undefined = null;
-
-      if (selectedBus && selectedBus.routeGeometry?.coordinates) {
-          console.log(`%cCase 1: Drawing route for SELECTED bus: ${selectedBus.busNumber}`, "color: green;");
-          routeToDraw = selectedBus.routeGeometry.coordinates as [number, number][];
-          busForStops = selectedBus;
-      } else if (isFiltered && buses.length > 0) {
-          console.log("%cCase 2: Attempting to draw route for SEARCH results.", "color: orange;");
-          const busWithRoute = buses.find(b => b.routeGeometry?.coordinates);
-          if (busWithRoute) {
-              console.log(`%cFound a bus with route geometry: ${busWithRoute.busNumber}. Drawing its route.`, "color: green;");
-              routeToDraw = busWithRoute.routeGeometry!.coordinates as [number, number][];
-              busForStops = busWithRoute;
-          } else {
-              console.warn("%cNo bus in the search results has the 'routeGeometry' field. Cannot draw route.", "color: red; font-weight: bold;");
-              if (buses[0]) {
-                  console.log("Data for the first bus in search results (check for 'routeGeometry'):", buses[0]);
-              }
+      if (busForStops) {
+        const allStops = [busForStops.source, ...busForStops.stops, busForStops.destination];
+        allStops.forEach((stop, index) => {
+          if (stop?.coords) {
+            const isPast = busForStops!.currentStopIndex > index;
+            const el = createStopMarkerElement(isPast);
+            const coords = normalizeCoords(stop.coords as [number, number]);
+            if (coords) {
+              const stopMarker = new mapboxgl.Marker({ element: el }).setLngLat(coords).addTo(map.current!);
+              stopMarkersRef.current.push(stopMarker);
+            }
           }
+        });
       }
 
-      if (routeToDraw) {
-          routeSource.setData({
-              type: 'Feature',
-              properties: {},
-              geometry: { type: 'LineString', coordinates: routeToDraw },
-          });
-
-          if (busForStops) {
-              const allStops = [busForStops.source, ...busForStops.stops, busForStops.destination];
-              allStops.forEach((stop, index) => {
-                  if (stop && stop.coords) {
-                      const isPast = busForStops!.currentStopIndex > index;
-                      const el = createStopMarkerElement(isPast);
-                      const coords: [number, number] | null = normalizeCoords(stop.coords as [number, number]);
-                      if (coords) {
-                          const stopMarker = new mapboxgl.Marker({ element: el }).setLngLat(coords).addTo(map.current!);
-                          stopMarkersRef.current.push(stopMarker);
-                      }
-                  }
-              });
-          }
-
-          if (isFiltered && !searchFitBoundsDone.current) {
-              const bounds = new mapboxgl.LngLatBounds(routeToDraw[0], routeToDraw[0]);
-              for (const coord of routeToDraw) {
-                  bounds.extend(coord);
-              }
-              map.current?.fitBounds(bounds, { padding: { top: 100, bottom: 50, left: 50, right: 450 } });
-              searchFitBoundsDone.current = true;
-          }
-
-      } else {
-          console.log("Case 3: No route to draw. Clearing map route.");
-          routeSource.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
+      if (isFiltered && !searchFitBoundsDone.current) {
+        const coordsNormalized = (routeToDraw || []).map(c => normalizeCoords(c)).filter(Boolean) as [number, number][];
+        if (coordsNormalized.length > 1) {
+          const bounds = new mapboxgl.LngLatBounds(coordsNormalized[0], coordsNormalized[0]);
+          coordsNormalized.forEach(c => bounds.extend(c));
+          try { map.current?.fitBounds(bounds, { padding: { top: 100, bottom: 50, left: 50, right: 450 } }); } catch (e) {}
+          searchFitBoundsDone.current = true;
+        }
       }
-  }, [selectedBus, buses, isFiltered]);
+
+      lastDrawnRouteRef.current = newKey;
+    } else {
+      if (lastDrawnRouteRef.current) {
+        routeSource.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
+        lastDrawnRouteRef.current = null;
+      }
+    }
+  })();
+}, [selectedBus, buses, isFiltered]);
+
+ 
 
 
 useEffect(() => {
@@ -991,13 +1144,19 @@ useEffect(() => {
 
   return (
     <>
-      <div className="absolute top-0 right-0 z-10 w-full max-w-md">
+      {/* <div className="absolute top-0 right-0 z-10 w-full max-w-md"> */}
+        <div
+    className="absolute top-0 right-0 w-full max-w-md"
+    // ensure overlay sits above map and receives pointer events
+    style={{ zIndex: 1100, pointerEvents: 'auto' }}>
         <Card>
           <CardContent className="p-3">
             <form onSubmit={handleSearchSubmit} className="flex items-center gap-2">
               <Input
                 value={searchSource}
                 onChange={e => setSearchSource(e.target.value)}
+               onFocus={() => { /* prevent accidental map interactions while typing */ }}
+              tabIndex={0}
                 placeholder="Source"
                 aria-label="source"
                 className="flex-1"
@@ -1005,15 +1164,24 @@ useEffect(() => {
               <Input
                 value={searchDestination}
                 onChange={e => setSearchDestination(e.target.value)}
+                onFocus={() => { /* prevent accidental map interactions while typing */ }}
+              tabIndex={0}
                 placeholder="Destination"
                 aria-label="destination"
                 className="flex-1"
               />
-              <Button type="submit" disabled={searching} size="icon" aria-label="Search Route">
-                <Search className="h-4 w-4" />
-              </Button>
-              <Button type="button" onClick={handleClearSearch} variant="ghost" size="icon" aria-label="Clear Search">
-                <X className="h-4 w-4" />
+              <Button
+                type="button"
+                onClick={() => {
+                  handleClearSearch();
+                  // focus source input after clearing for immediate editing
+                  const firstInput = document.querySelector<HTMLInputElement>('input[aria-label="source"]');
+                  firstInput?.focus();
+                }}
+                variant="ghost"
+                size="icon"
+                aria-label="Clear Search"
+              > <X className="h-4 w-4" />
               </Button>
             </form>
             {searchError && <p className="mt-2 text-xs text-destructive">{searchError}</p>}
@@ -1191,3 +1359,5 @@ useEffect(() => {
     </>
   );
 }
+
+

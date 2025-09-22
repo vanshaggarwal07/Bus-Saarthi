@@ -1,96 +1,58 @@
+// ...existing code...
 const router = require('express').Router();
-const Driver = require('../models/driver.model');
 const Bus = require('../models/bus.model');
-// GET all drivers
+
+/**
+ * GET /drivers
+ * Build driver list from Bus documents. Use driverName / driverLicense / driverContact / driverStatus
+ * if present on bus, otherwise fall back to assignedDriver or sensible defaults.
+ */
 router.get('/', async (req, res) => {
   try {
-    // Use .populate() to also fetch the details of the assigned bus
-    const drivers = await Driver.find().populate({
-      path: 'assignedBus',
-      select: 'busNumber source destination' // Select the fields you need from the Bus model
-    }).sort({ createdAt: -1 });
-    res.json(drivers);
-  } catch (err) {
-    console.error('Error fetching drivers:', err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+    const buses = await Bus.find().lean();
 
-// POST a new driver
-router.post('/', async (req, res) => {
-  try {
-    const newDriver = new Driver(req.body);
-    const savedDriver = await newDriver.save();
-    res.status(201).json(savedDriver);
-  } catch (err) {
-    console.error('Error creating driver:', err);
-    if (err.code === 11000) {
-      return res.status(409).json({ error: 'A driver with this license number already exists.' });
-    }
-    res.status(400).json({ error: err.message });
-  }
-});
+    const driversMap = new Map();
 
-// PUT to update a driver by ID
-router.put('/:id', async (req, res) => {
-  try {
-   const driverId = req.params.id;
-    const updateData = req.body;
-    const newBusId = updateData.assignedBus || null;
- const driver = await Driver.findById(driverId);
-    if (!driver) {
-      return res.status(404).json({ error: 'Driver not found' });
-    }
-    const oldBusId = driver.assignedBus;
+    for (const bus of buses) {
+      const assigned = bus.assignedDriver;
+      const name = (bus.driverName || (assigned && (typeof assigned === 'object' ? assigned.name : String(assigned))) || 'Unknown').trim();
+      const key = name || `unknown-${String(bus._id)}`;
 
-    // If the bus assignment has changed, update the corresponding Bus documents
-    if (String(oldBusId) !== String(newBusId)) {
-      // 1. Un-assign the driver from their old bus, if they had one
-      if (oldBusId) {
-        await Bus.findByIdAndUpdate(oldBusId, { assignedDriver: null });
+      if (!driversMap.has(key)) {
+        driversMap.set(key, {
+          _id: key,
+          name,
+          licenseNumber: bus.driverLicense || bus.driverLicenseNumber || (assigned && assigned.licenseNumber) || null,
+          contact: bus.driverContact || bus.driverPhone || (assigned && assigned.contact) || null,
+          status: bus.driverStatus || (assigned && assigned.status) || (bus.status === 'active' ? 'on_duty' : 'inactive'),
+          createdAt: (assigned && assigned.createdAt) || null,
+          updatedAt: null,
+          assignedBuses: []
+        });
       }
-      // 2. Assign the driver to the new bus, if one is provided
-      if (newBusId) {
-        // As a safeguard, check if the new bus is already taken
-        const targetBus = await Bus.findById(newBusId);
-        if (targetBus && targetBus.assignedDriver) {
-          return res.status(409).json({ error: `Bus ${targetBus.busNumber} is already assigned to another driver.` });
-        }
-        await Bus.findByIdAndUpdate(newBusId, { assignedDriver: driverId });
+
+      const drv = driversMap.get(key);
+
+      drv.assignedBuses.push({
+        _id: bus._id,
+        busNumber: bus.busNumber || null,
+        route: bus.route?.name || bus.routeName || bus.route || null,
+        passengers: bus.passengers || null,
+        status: bus.status || null,
+        updatedAt: bus.updatedAt || bus.updatedAt || null
+      });
+
+      // keep latest updatedAt for driver
+      const busUpdated = bus.updatedAt ? new Date(bus.updatedAt) : null;
+      if (busUpdated && (!drv.updatedAt || new Date(drv.updatedAt) < busUpdated)) {
+        drv.updatedAt = bus.updatedAt;
       }
     }
 
-    // Finally, update the driver document itself
-    const updatedDriver = await Driver.findByIdAndUpdate(driverId, updateData, { new: true, runValidators: true }).populate('assignedBus');
-    
-    res.json(updatedDriver);
+    return res.json(Array.from(driversMap.values()));
   } catch (err) {
-    console.error('Error updating driver:', err);
-    res.status(400).json({ error: err.message || 'Failed to update driver' });
-  }
-});
-
-// DELETE a driver by ID
-router.delete('/:id', async (req, res) => {
-  try {
-    const driverId = req.params.id;
-    
-    // Find the driver to see if they are assigned to a bus
-    const driver = await Driver.findById(driverId);
-    if (driver && driver.assignedBus) {
-      // If so, update the bus to have no driver
-      await Bus.findByIdAndUpdate(driver.assignedBus, { assignedDriver: null });
-    }
-
-    // Now, delete the driver
-    const deletedDriver = await Driver.findByIdAndDelete(driverId);
-    if (!deletedDriver) {
-      return res.status(404).json({ error: 'Driver not found' });
-    }
-    res.status(200).json({ message: 'Driver deleted successfully' });
-  } catch (err) {
-    console.error('Error deleting driver:', err);
-    res.status(500).json({ error: 'Server error' });
+    console.error('GET /drivers error', err);
+    return res.status(500).json({ error: 'failed to fetch drivers' });
   }
 });
 

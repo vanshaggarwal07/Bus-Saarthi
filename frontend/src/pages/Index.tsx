@@ -18,4 +18,14 @@ const Index = () => {
   );
 };
 
+<script
+    src="https://app.wonderchat.io/scripts/wonderchat.js"
+    data-name="wonderchat"
+    data-address="app.wonderchat.io"
+    data-id="cmfu6lco51raa140rdcmzupme"
+    data-widget-size="normal"
+    data-widget-button-size="normal"
+    defer
+  ></script>
+
 export default Index;

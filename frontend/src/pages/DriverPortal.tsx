@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Clock, Bus, AlertTriangle, Coffee, Power, AlertCircle, Loader2, Wifi, MapPin,User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
-import { useTranslation } from 'react-i18next';
 
 interface Bus {
   id: string;
@@ -26,10 +25,10 @@ interface Bus {
     id: string;
     name: string;
   };
+  recentLocations?: { coordinates: [number, number]; ts: string }[];
 }
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 export default function DriverPortal() {
-  const { t } = useTranslation('common');
   const [driverId, setDriverId] = useState("");
   const [busNumber, setBusNumber] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,11 +38,10 @@ export default function DriverPortal() {
   const [locationError, setLocationError] = useState("");
   const [isLocationActive, setIsLocationActive] = useState(false);
   const [watchId, setWatchId] = useState<number | null>(null);
-  // const [locationSource, setLocationSource] = useState<'gps' | 'cell'>('gps');
+
   const [currentBus, setCurrentBus] = useState<Bus | null>(null);
   const [isOnBreak, setIsOnBreak] = useState(false);
-  //  const [isJourneyActive, setIsJourneyActive] = useState(false);
-  // const journeyWatchId = useRef<number | null>(null);
+ 
 const [isJourneyActive, setIsJourneyActive] = useState(false);
 const [locationSource, setLocationSource] = useState<'gps' | 'cell' | null>(null);
 const journeyWatchId = useRef<number | null>(null);
@@ -80,12 +78,30 @@ const journeyWatchId = useRef<number | null>(null);
       }
       
       const data = await response.json();
-      const busFromServer = data.bus;
+      const busFromServer = data?.bus ?? data;
       
       // Future enhancement: you could verify driverId against busFromServer.driverName or a driverId field.
-      
+       const normalizedBus: Bus = {
+        id: busFromServer._id || busFromServer.id || String(busFromServer.busNumber || busFromServer.number || busNumber || ''),
+        number: busFromServer.busNumber || busFromServer.number || busFromServer.busNo || busNumber,
+        source: { name: busFromServer.source?.name || busFromServer.sourceName || (busFromServer.route?.source && busFromServer.route.source.name) || 'N/A' },
+        destination: { name: busFromServer.destination?.name || busFromServer.destinationName || (busFromServer.route?.destination && busFromServer.route.destination.name) || 'N/A' },
+        status: busFromServer.status || busFromServer.statusText || 'unknown',
+        lastUpdated: busFromServer.updatedAt || busFromServer.lastUpdated || new Date().toISOString(),
+        isActive: typeof busFromServer.isActive === 'boolean' ? busFromServer.isActive : true,
+        currentLocation: (busFromServer.coordinates && Array.isArray(busFromServer.coordinates))
+          ? { lat: Number(busFromServer.coordinates[1]), lng: Number(busFromServer.coordinates[0]) }
+          : (busFromServer.currentLocation || null),
+        driver: busFromServer.driver || (busFromServer.driverName ? { id: '', name: busFromServer.driverName } : undefined),
+      recentLocations: Array.isArray(busFromServer.recentLocations)
+         ? busFromServer.recentLocations.slice(-50)
+         : (busFromServer.coordinates && Array.isArray(busFromServer.coordinates)
+           ? [{ coordinates: [Number(busFromServer.coordinates[0]), Number(busFromServer.coordinates[1])], ts: (busFromServer.updatedAt || new Date().toISOString()) }]
+           : [])
+      };
+
       setIsAuthenticated(true);
-      setCurrentBus(busFromServer);
+      setCurrentBus(normalizedBus);
 
     } catch (err: any) {
       console.error('Authentication error:', err);
@@ -133,22 +149,160 @@ const journeyWatchId = useRef<number | null>(null);
     if (watchId !== null) {
       navigator.geolocation.clearWatch(watchId);
       setWatchId(null);
-      setIsLocationActive(false);
     }
+    if (journeyWatchId.current !== null) {
+    navigator.geolocation.clearWatch(journeyWatchId.current);
+    journeyWatchId.current = null;
+  }
+
+  setIsLocationActive(false);
+  setLocation(null);
   };
 
-  // In a real app, this would send the location to your backend
+ const handleLogout = () => {
+  // ensure any active watchers are cleared and optionally stop journey on server
+  // stopLocationTracking();
+
+  // If a journey was active, stop it on server (fire-and-forget)
+  // if (isJourneyActive) {
+  //   // don't await here to avoid blocking UI
+  //   handleStopJourney().catch(err => console.warn('handleStopJourney on logout failed:', err));
+  // }
+
+  setIsAuthenticated(false);
+  setDriverId("");
+  setBusNumber("");
+  // setCurrentBus(null);
+  setIsOnBreak(false);
+  setEmergencyStatus({ isActive: false, message: '', time: null });
+
+  // ensure UI shows location cleared
+  setIsLocationActive(false);
+  setLocation(null);
+};
+// ...existing code...
+// update cleanup effect at bottom to clear both watchers
+useEffect(() => {
+  return () => {
+    if (watchId !== null) {
+      navigator.geolocation.clearWatch(watchId);
+    }
+    if (journeyWatchId.current !== null) {
+      navigator.geolocation.clearWatch(journeyWatchId.current);
+      journeyWatchId.current = null;
+    }
+  };
+}, [watchId]);
+
+  // In-file helper: reliably send location to server
+ // ...existing code...
+  // { changed code }
+  // Replace the old sendLocation implementation (approx lines 170-200)
+  const sendLocation = async (lat: number, lng: number) => {
+    const busIdToSend = busNumber || currentBus?.number || currentBus?.number || 'UNKNOWN';
+    const payload = {
+      busNumber: busIdToSend,
+      coordinates: [Number(lng), Number(lat)], // Map/server expects [lng, lat]
+      timestamp: new Date().toISOString()
+    };
+
+    // Update local UI state immediately so icon / timeline respond without waiting for server
+    setLocation({ lat, lng });
+    setIsLocationActive(true);
+    if (currentBus) {
+      const prevRecent = Array.isArray(currentBus.recentLocations) ? currentBus.recentLocations : [];
+      const newEntry = { coordinates: [Number(lng), Number(lat)] as [number, number], ts: payload.timestamp };
+      const newRecent = [...prevRecent.slice(-49), newEntry];
+
+      setCurrentBus({
+        ...currentBus,
+        currentLocation: { lat: Number(lat), lng: Number(lng) },
+        lastUpdated: payload.timestamp,
+        recentLocations: newRecent
+     });
+    }
+
+    // Try send once; retry once on network failure
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const res = await fetch(`${API_URL}/buses/update-location`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const text = await res.text().catch(() => '');
+        let json;
+        try { json = text ? JSON.parse(text) : null; } catch(e) { json = text; }
+
+        if (res.ok) {
+          console.debug('sendLocation success', json ?? res.status);
+          return { ok: true, body: json ?? null };
+        } else {
+          console.warn(`sendLocation attempt ${attempt} failed`, res.status, json);
+          // if server error 5xx try again once
+          if (res.status >= 500 && attempt === 1) {
+            await new Promise(r => setTimeout(r, 300)); // short delay before retry
+            continue;
+          }
+          return { ok: false, status: res.status, body: json ?? text };
+        }
+      } catch (err) {
+        console.error(`sendLocation network error attempt ${attempt}:`, err);
+        if (attempt === 2) return { ok: false, error: String(err) };
+        await new Promise(r => setTimeout(r, 300));
+      }
+    }
+  };
+  // { changed code }
+
+  // Replace GPS watch start callback (approx lines 230-260) so it calls sendLocation each tick
+  const handleSelectGPS = () => {
+    if (!isJourneyActive) {
+      toast({ title: "Journey not started", description: "Please start the journey before enabling GPS.", variant: "destructive" });
+      return;
+    }
+
+    if (journeyWatchId.current !== null) {
+      console.log('GPS watch already active:', journeyWatchId.current);
+      setLocationSource('gps');
+      return;
+    }
+
+    setLocationSource('gps');
+
+    journeyWatchId.current = navigator.geolocation.watchPosition(
+      async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.debug('watchPosition', { latitude, longitude, timestamp: position.timestamp });
+
+        // update local UI and send to server
+        setLocation({ lat: latitude, lng: longitude });
+        setIsLocationActive(true);
+
+        // send to server but don't block UI
+        sendLocation(latitude, longitude).then((result) => {
+          if (!result?.ok) {
+            console.warn('sendLocation failed result:', result);
+          }
+        }).catch(err => console.error('sendLocation unexpected error', err));
+      },
+      (error) => {
+        console.error('watchPosition error', error);
+        setLocationError("Unable to retrieve your location");
+        setIsLocationActive(false);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
+
+    console.log('GPS watch started id=', journeyWatchId.current);
+  };
+  // { changed code }
+// ...existing code...
+
+  // Update current bus location locally and send to server
   const updateBusLocation = (lat: number, lng: number) => {
     console.log(`Updating bus location to: ${lat}, ${lng}`);
-    // Here you would typically make an API call to update the bus location in your database
-    // For example:
-    // await fetch('/api/bus/location', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ busNumber, driverId, location: { lat, lng } })
-    // });
-    
-    // Update the current bus location in state
     if (currentBus) {
       setCurrentBus({
         ...currentBus,
@@ -156,18 +310,33 @@ const journeyWatchId = useRef<number | null>(null);
         lastUpdated: new Date().toISOString()
       });
     }
+    // Always send location to server on each update
+    sendLocation(lat, lng);
   };
 
-  const handleLogout = () => {
-    stopLocationTracking();
-    setIsAuthenticated(false);
-    setDriverId("");
-    setBusNumber("");
-    setLocation(null);
-    setCurrentBus(null);
-    setIsOnBreak(false);
-    setEmergencyStatus({ isActive: false, message: '', time: null });
-  };
+  // cleanup watcher on unmount
+  useEffect(() => {
+    return () => {
+      if (journeyWatchId.current !== null) {
+        navigator.geolocation.clearWatch(journeyWatchId.current);
+        journeyWatchId.current = null;
+      }
+      if (watchId !== null) {
+        navigator.geolocation.clearWatch(watchId);
+      }
+    };
+  }, []);
+
+  // const handleLogout = () => {
+  //   stopLocationTracking();
+  //   setIsAuthenticated(false);
+  //   setDriverId("");
+  //   setBusNumber("");
+  //   setLocation(null);
+  //   setCurrentBus(null);
+  //   setIsOnBreak(false);
+  //   setEmergencyStatus({ isActive: false, message: '', time: null });
+  // };
 
   const handleReportIssue = async () => {
     if (!currentBus) return;
@@ -180,17 +349,6 @@ const journeyWatchId = useRef<number | null>(null);
     // Simulate API call
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      // In a real app, this would be an API call
-      // await fetch('/api/report-issue', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     busId: currentBus.id,
-      //     driverId,
-      //     issue,
-      //     location,
-      //     timestamp: new Date().toISOString()
-      //   })
-      // });
       
       toast({
         title: "Issue Reported",
@@ -217,16 +375,8 @@ const journeyWatchId = useRef<number | null>(null);
     
     try {
       await new Promise(resolve => setTimeout(resolve, 800));
-      // In a real app, this would be an API call
-      // await fetch('/api/driver/break', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     driverId,
-      //     busId: currentBus.id,
-      //     isOnBreak: newBreakState,
-      //     timestamp: new Date().toISOString()
-      //   })
-      // });
+        timestamp: new Date().toISOString()
+     
       
       setIsOnBreak(newBreakState);
       toast({
@@ -439,37 +589,38 @@ const handleStartJourney = async () => {
     setIsLoading(false);
   }
 };
-const handleSelectGPS = () => {
-  if (!isJourneyActive) {
-    toast({
-      title: "Journey not started",
-      description: "Please start the journey before enabling GPS.",
-      variant: "destructive",
-    });
-    return;
-  }
-  // Ask for location permission and start tracking
-  journeyWatchId.current = navigator.geolocation.watchPosition(
-    (position) => {
-    const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      setLocation({ lat: latitude, lng: longitude });
-      setIsLocationActive(true);
-      fetch("http://localhost:5000/buses/update-location", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-        busNumber: busNumber || "UNKNOWN", coordinates: [longitude, latitude]
-        }),
-      });
-    },
-    (error) => {
-      setLocationError("Unable to retrieve your location");
-      setIsLocationActive(false);
-    },
-    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-  );
-};
+// const handleSelectGPS = () => {
+//   if (!isJourneyActive) {
+//     toast({
+//       title: "Journey not started",
+//       description: "Please start the journey before enabling GPS.",
+//       variant: "destructive",
+//     });
+//     return;
+//   }
+//   // Ask for location permission and start tracking
+//   journeyWatchId.current = navigator.geolocation.watchPosition(
+//     (position) => {
+//     const latitude = position.coords.latitude;
+//       const longitude = position.coords.longitude;
+//       setLocation({ lat: latitude, lng: longitude });
+//       setIsLocationActive(true);
+//       fetch("http://localhost:5000/buses/update-location", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//         busNumber: busNumber || "UNKNOWN", coordinates: [longitude, latitude]
+//         }),
+//       });
+//     },
+//     (error) => {
+//       console.error('watchPosition error', error);
+//       setLocationError("Unable to retrieve your location");
+//       setIsLocationActive(false);
+//     },
+//     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+//   );
+// };
 
 // --- Select Cell Tower (simulate) ---
 const handleSelectCell = () => {
@@ -822,3 +973,4 @@ const handleSelectCell = () => {
     </div>
   );
 }
+
