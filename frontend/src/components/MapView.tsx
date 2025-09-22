@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Card, CardContent } from '@/components/ui/card';
+import { BusRouteProgress } from '@/components/BusRouteProgress';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Navigation, Bus, Users, Clock, XCircle, Circle, Search, X } from 'lucide-react';
@@ -23,12 +24,19 @@ interface Location {
   coords: [number, number];
 }
 
+interface Stop extends Location {
+  arrivalTime?: string;
+  scheduledTime?: string;
+  status?: 'completed' | 'current' | 'upcoming' | 'delayed' | 'stopped';
+  delayMinutes?: number;
+}
+
 interface BusData {
   _id: string;
   busNumber: string;
-  source: Location;
-  destination: Location;
-  stops: Location[];
+  source: Stop;
+  destination: Stop;
+  stops: Stop[];
   status: 'On Time' | 'Delayed' | 'Early' | 'At Stop' | 'Inactive' | 'Arriving';
   passengers: string;
   coordinates: [number, number];
@@ -39,9 +47,13 @@ interface BusData {
   isActive: boolean;
   isAtStop: boolean;
   currentStopIndex: number;
+  delayMinutes?: number;
+  lastUpdated?: string;
   routeGeometry?: {
     coordinates: [number, number][];
   };
+  arrivalTime?: string;
+  departureTime?: string;
 }
 
 interface AnimationState {
@@ -1303,7 +1315,42 @@ useEffect(() => {
 
                   {selectedBus?._id === bus._id && (
                     <div className="px-3 pb-3 pt-1 border-t">
-                      <h4 className="text-xs font-semibold text-muted-foreground mb-2">Route Details</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground mb-2">Route Progress</h4>
+                      <div className="mb-4">
+                        <BusRouteProgress 
+                          stops={[
+                            { 
+                              name: bus.source.name, 
+                              status: 'completed' as const,
+                              scheduledTime: bus.departureTime || ''
+                            },
+                            ...bus.stops.map((stop, idx) => ({
+                              name: stop.name,
+                              status: (idx < bus.currentStopIndex 
+                                ? 'completed' 
+                                : idx === bus.currentStopIndex 
+                                  ? 'current' 
+                                  : 'upcoming') as 'completed' | 'current' | 'upcoming',
+                              delayMinutes: idx === bus.currentStopIndex ? (bus.delayMinutes || 0) : 0,
+                              scheduledTime: stop.arrivalTime || ''
+                            })),
+                            { 
+                              name: bus.destination.name, 
+                              status: (bus.currentStopIndex >= bus.stops.length ? 'completed' : 'upcoming') as 'completed' | 'upcoming',
+                              scheduledTime: bus.arrivalTime || ''
+                            }
+                          ]}
+                          currentLocation={bus.coordinates ? {
+                            coordinates: [bus.coordinates[1], bus.coordinates[0]],
+                            lastUpdated: bus.lastUpdated || new Date().toISOString()
+                          } : undefined}
+                          nextStop={bus.nextStop}
+                          etaToNextStop={bus.eta}
+                          delayMinutes={bus.delayMinutes || 0}
+                          status={bus.status.toLowerCase() === 'delayed' ? 'delayed' : 'on_time'}
+                        />
+                      </div>
+                      <h4 className="text-xs font-semibold text-muted-foreground mb-2">Route Stops</h4>
                       <ul className="space-y-0">
                         {allStops.map((stop, index) => {
                           const isPast = bus.currentStopIndex > index;

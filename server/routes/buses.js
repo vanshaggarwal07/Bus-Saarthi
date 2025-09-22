@@ -11,8 +11,160 @@ function escapeRegex(str = '') {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Helper to calculate ETAs for stops
+async function calculateStopETAs(bus) {
+  if (!bus.stops || !bus.stops.length) return [];
+  
+  const etas = [0]; // Starting point has 0 ETA
+  let totalDuration = 0;
+  
+  // Calculate ETA for each stop based on distance and average speed (60 km/h)
+  for (let i = 1; i < bus.stops.length; i++) {
+    const prevStop = bus.stops[i-1];
+    const currStop = bus.stops[i];
+    
+    if (prevStop.coords && currStop.coords) {
+      const distance = haversineKm(
+        [prevStop.coords[1], prevStop.coords[0]],
+        [currStop.coords[1], currStop.coords[0]]
+      );
+      
+      // Assume average speed of 60 km/h (1 km/min)
+      const duration = Math.round(distance * 1.2); // Add 20% buffer
+      totalDuration += duration;
+      etas.push(totalDuration);
+    } else {
+      // If no coordinates, estimate based on equal distribution
+      const avgDuration = Math.round(bus.routeProfile?.mapboxDuration / (bus.stops.length - 1));
+      totalDuration += avgDuration || 15; // Default to 15 minutes if no duration available
+      etas.push(totalDuration);
+    }
+  }
+  
+  return etas;
+}
+
 
 // --- API ROUTES ---
+
+// GET all locations
+router.get('/locations/all', async (req, res) => {
+  try {
+    const buses = await Bus.find({}).select('source.name destination.name stops.name').lean();
+    const locations = new Set();
+    
+    buses.forEach(bus => {
+      if (bus.source?.name) locations.add(bus.source.name);
+      if (bus.destination?.name) locations.add(bus.destination.name);
+      bus.stops?.forEach(stop => {
+        if (stop.name) locations.add(stop.name);
+      });
+    });
+    
+    res.json({ locations: Array.from(locations).sort() });
+  } catch (err) {
+    console.error('Error fetching locations:', err);
+    res.status(500).json({ error: 'Failed to fetch locations' });
+  }
+});
+
+// Search buses by route
+router.get('/search/route', async (req, res) => {
+  try {
+    const { source, destination } = req.query;
+    if (!source || !destination) {
+      return res.status(400).json({ error: 'Source and destination are required' });
+    }
+
+    // Find buses that go from source to destination (direct or with stops)
+    const buses = await Bus.find({
+      $or: [
+        { 'source.name': new RegExp(escapeRegex(source), 'i') },
+        { 'stops.name': new RegExp(escapeRegex(source), 'i') }
+      ]
+    }).lean();
+
+    // Filter buses that go to the destination (direct or with stops)
+    const filteredBuses = buses.filter(bus => {
+      // Check if bus goes to destination
+      const goesToDestination = 
+        (bus.destination?.name && new RegExp(escapeRegex(destination), 'i').test(bus.destination.name)) ||
+        (bus.stops?.some(stop => new RegExp(escapeRegex(destination), 'i').test(stop.name)));
+      
+      // Check if source comes before destination
+      const allStops = [
+        { ...bus.source, isSource: true },
+        ...(bus.stops || []).map(s => ({ ...s, isStop: true })),
+        { ...bus.destination, isDestination: true }
+      ].filter(Boolean);
+
+      const sourceIndex = allStops.findIndex(s => 
+        s.name && new RegExp(escapeRegex(source), 'i').test(s.name)
+      );
+      
+      const destIndex = allStops.findIndex(s => 
+        s.name && new RegExp(escapeRegex(destination), 'i').test(s.name)
+      );
+
+      return goesToDestination && sourceIndex >= 0 && destIndex > sourceIndex;
+    });
+
+    // Process each bus to add ETAs and status
+    const processedBuses = await Promise.all(filteredBuses.map(async (bus) => {
+      // Calculate current stop index based on last known location
+      const currentStopIndex = bus.currentStopIndex ?? -1;
+      
+      // Calculate ETAs for each stop
+      const stopETAs = await calculateStopETAs(bus);
+      
+      // Determine next stop info
+      let nextStopInfo = null;
+      if (currentStopIndex < (bus.stops?.length || 0) - 1) {
+        const nextStop = bus.stops[currentStopIndex + 1];
+        if (nextStop) {
+          nextStopInfo = {
+            name: nextStop.name,
+            eta: stopETAs[currentStopIndex + 1] - (stopETAs[currentStopIndex] || 0),
+            distance: bus.routeProfile?.stopDistances?.[currentStopIndex + 1] || 0
+          };
+        }
+      }
+
+      // Update stops with status
+      const stops = [
+        { ...bus.source, scheduledTime: bus.departureTime },
+        ...(bus.stops || []),
+        { ...bus.destination, scheduledTime: bus.arrivalTime }
+      ].filter(Boolean).map((stop, index) => ({
+        name: stop.name,
+        coords: stop.coords,
+        scheduledTime: stop.scheduledTime,
+        status: index < currentStopIndex ? 'completed' : 
+                index === currentStopIndex ? 'current' : 'upcoming',
+        delayMinutes: index === currentStopIndex ? (bus.delayMinutes || 0) : 0,
+        eta: stopETAs[index] || 0
+      }));
+
+      return {
+        ...bus,
+        stops,
+        currentStopIndex,
+        nextStopInfo,
+        routeProfile: {
+          ...bus.routeProfile,
+          stopETAs
+        },
+        status: bus.status || 'on_time',
+        delayMinutes: bus.delayMinutes || 0
+      };
+    }));
+
+    res.json({ buses: processedBuses });
+  } catch (err) {
+    console.error('Error searching buses:', err);
+    res.status(500).json({ error: 'Failed to search buses' });
+  }
+});
 
 // GET all buses (with caching)
 router.get('/', async (req, res) => {
