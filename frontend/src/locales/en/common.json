@@ -8,8 +8,8 @@
   "sos": "Emergency SOS",
 
   "hero.title.line1": "Smart Travel",
-  "hero.title.line2": "Across Punjab",
-  "hero.subtitle": "Real-time bus tracking, accurate ETAs, and complete route information for Punjab's public transport system.",
+  "hero.title.line2": "Across Cities",
+  "hero.subtitle": "Real-time bus tracking, accurate ETAs, and complete route information for Cities' public transport system.",
 
   "search.tabs.route": "Route",
   "search.tabs.pnr": "PNR Status",
@@ -29,8 +29,8 @@
   "stats.liveTracking": "Live Tracking",
   "stats.onTime": "On-Time",
 
-  "features.title": "Why Choose Punjab Yatra?",
-  "features.subtitle": "Built specifically for Punjab's public transport with features that matter most to local commuters.",
+  "features.title": "Why Choose Bus Saarthi?",
+  "features.subtitle": "Built specifically for Cities' public transport with features that matter most to local commuters.",
   "features.items": {
     "gps.title": "Real-Time GPS Tracking",
     "gps.desc": "Track your bus live on the map with precise location updates every few seconds.",
@@ -46,7 +46,7 @@
     "reliable.desc": "Dependable service with 99.9% uptime for consistent access."
   },
 
-  "footer.about": "Making Punjab's public transport smarter, safer, and more reliable for everyone.",
+  "footer.about": "Making Cities' public transport smarter, safer, and more reliable for everyone.",
   "footer.services": "Services",
   "footer.services.items": {
     "tracking": "Real-Time Tracking",
@@ -63,9 +63,9 @@
   },
   "footer.contact": "Contact",
   "footer.phone": "+91 98765 43210",
-  "footer.email": "support@punjabyatra.com",
-  "footer.location": "Chandigarh, Punjab",
-  "footer.copyright": "© 2025 Punjab Yatra",
+  "footer.email": "support@cityyatra.com",
+  "footer.location": "Delhi, India",
+  "footer.copyright": "© 2025 City Yatra",
 
   "notFound.title": "Route Not Found",
   "notFound.desc": "Looks like this bus route doesn't exist. Let's get you back on track!",
@@ -74,7 +74,7 @@
 
   "mapPage.back": "Back to Home",
   "mapPage.title": "Live Bus Tracking",
-  "mapPage.subtitle": "Real-time GPS locations across Punjab",
+  "mapPage.subtitle": "Real-time GPS locations across Cities",
 
   "driver.login.title": "Driver Login",
   "driver.login.driverId": "Driver ID",
@@ -133,7 +133,7 @@
 
   "municipal.header.back": "Back to Home",
   "municipal.header.title": "Municipal Corporation Portal",
-  "municipal.header.subtitle": "Punjab Transport Department",
+  "municipal.header.subtitle": "City Transport Department",
   "municipal.header.loggedInAs": "Logged in as:",
   "municipal.header.logout": "Logout",
 
