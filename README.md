@@ -95,13 +95,7 @@
    - Frontend: http://localhost:5173
    - Backend API: http://localhost:5000
 
-## 📱 Screenshots
 
-<div align="center">
-  <img src="./screenshots/dashboard.png" alt="Dashboard" width="30%">
-  <img src="./screenshots/live-tracking.png" alt="Live Tracking" width="30%">
-  <img src="./screenshots/admin-panel.png" alt="Admin Panel" width="30%">
-</div>
 
 ## 🏗️ Project Structure
 
