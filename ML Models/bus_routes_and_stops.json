@@ -1,0 +1,4205 @@
+{
+    "routes": [
+        "BUS-PN01-1234",
+        "BUS-GJ05-5678",
+        "BUS-PN01-5555",
+        "BUS-PB08-1111",
+        "BUS-PB08-2222",
+        "BUS-PN23-8888",
+        "BUS-PN10-7777",
+        "BUS-CH01-3333",
+        "BUS-PB65-4444",
+        "BUS-PB13-6666",
+        "BUS-PN01-1235",
+        "BUS-GJ05-5679",
+        "BUS-PN01-5556",
+        "BUS-PB08-1112",
+        "BUS-PB08-2223",
+        "BUS-PN23-8889",
+        "BUS-PN10-7778",
+        "BUS-CH01-3334",
+        "BUS-PB65-4445",
+        "BUS-PB13-6667",
+        "BUS-PN01-1236",
+        "BUS-GJ05-5680",
+        "BUS-PN01-5557",
+        "BUS-PB08-1113",
+        "BUS-PB08-2224",
+        "BUS-PN23-8890",
+        "BUS-PN10-7779",
+        "BUS-CH01-3335",
+        "BUS-PB65-4446",
+        "BUS-PB13-6668",
+        "BUS-PN01-1237",
+        "BUS-GJ05-5681",
+        "BUS-PN01-5558",
+        "BUS-PB08-1114",
+        "BUS-PB08-2225",
+        "BUS-PN23-8891",
+        "BUS-PN10-7780",
+        "BUS-CH01-3336",
+        "BUS-PB65-4447",
+        "BUS-PB13-6669",
+        "BUS-PN01-1238",
+        "BUS-GJ05-5682",
+        "BUS-PN01-5559",
+        "BUS-PB08-1115",
+        "BUS-PB08-2226",
+        "BUS-PN23-8892",
+        "BUS-PN10-7781",
+        "BUS-CH01-3337",
+        "BUS-PB65-4448",
+        "BUS-PB13-6670",
+        "BUS-PN01-1239",
+        "BUS-GJ05-5683",
+        "BUS-PN01-5560",
+        "BUS-PB08-1116",
+        "BUS-PB08-2227",
+        "BUS-PN23-8893",
+        "BUS-PN10-7782",
+        "BUS-CH01-3338",
+        "BUS-PB65-4449",
+        "BUS-PN01-1240",
+        "BUS-GJ05-5684",
+        "BUS-PN01-5561",
+        "BUS-PB08-1117",
+        "BUS-PB08-2228",
+        "BUS-PN23-8894",
+        "BUS-PN10-7783",
+        "BUS-CH01-3339",
+        "BUS-PB65-4450",
+        "BUS-PB13-6672",
+        "BUS-PN01-1241",
+        "BUS-GJ05-5685",
+        "BUS-PN01-5562",
+        "BUS-PB08-1118",
+        "BUS-PB08-2229",
+        "BUS-PN23-8895",
+        "BUS-PN10-7784",
+        "BUS-CH01-3340",
+        "BUS-PB65-4451",
+        "BUS-PB13-6673",
+        "BUS-PN01-1242",
+        "BUS-GJ05-5686",
+        "BUS-PN01-5563",
+        "BUS-PB08-1119",
+        "BUS-PB08-2230",
+        "BUS-PN23-8896",
+        "BUS-PN10-7785",
+        "BUS-CH01-3341",
+        "BUS-PB65-4452",
+        "BUS-PB13-6674",
+        "BUS-PN01-1243",
+        "BUS-GJ05-5687",
+        "BUS-PN01-5564",
+        "BUS-PB08-1120",
+        "BUS-PB08-2231",
+        "BUS-PN23-8897",
+        "BUS-PN10-7786",
+        "BUS-CH01-3342",
+        "BUS-PB65-4453",
+        "BUS-PB13-6675",
+        "BUS-PN01-1244",
+        "BUS-GJ05-5688",
+        "BUS-PN01-5565",
+        "BUS-PB08-1121",
+        "BUS-PB08-2232",
+        "BUS-PN23-8898",
+        "BUS-PN10-7787",
+        "BUS-CH01-3343",
+        "BUS-PB65-4454",
+        "BUS-PB13-6676"
+    ],
+    "stops": [
+        "Nawanshahr",
+        "Kot Ise Khan",
+        "Phillaur",
+        "Beas",
+        "Zira",
+        "Tanda",
+        "Goraya",
+        "Talwandi Bhai",
+        "Phagwara",
+        "Jalandhar",
+        "Batala",
+        "Kharar",
+        "Harike",
+        "Moga",
+        "Sirhind",
+        "Bhawanigarh",
+        "Kartarpur",
+        "Nakodar",
+        "Goniana",
+        "Rampura Phul",
+        "Patiala",
+        "Malerkotla",
+        "Barnala",
+        "Kotkapura",
+        "Nabha",
+        "Mukerian",
+        "Jandiala",
+        "Shahkot",
+        "Khanna",
+        "Jagraon",
+        "Ropar",
+        "Gurdaspur",
+        "Firozpur",
+        "Pathankot",
+        "Tapa",
+        "Dasuya",
+        "Hoshiarpur",
+        "Mohali",
+        "Samrala",
+        "Baghapurana",
+        "Doraha",
+        "Faridkot",
+        "Tarn Taran",
+        "Raikot",
+        "Ludhiana",
+        "Dinanagar",
+        "Rajpura",
+        "Sangrur",
+        "Amritsar",
+        "Dhuri",
+        "Kurali",
+        "Ahmedgarh"
+    ],
+    "bus_data": {
+        "BUS-PN01-1234": {
+            "busNumber": "BUS-PN01-1234",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "08:00",
+            "arrivalTime": "11:00",
+            "driverName": "Mr. Singh",
+            "stops": [
+                {
+                    "name": "Jandiala",
+                    "coords": [
+                        31.5583,
+                        75.0258
+                    ]
+                },
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                },
+                {
+                    "name": "Kartarpur",
+                    "coords": [
+                        31.4426,
+                        75.4984
+                    ]
+                },
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Phillaur",
+                    "coords": [
+                        31.0261,
+                        75.7863
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5678": {
+            "busNumber": "BUS-GJ05-5678",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "departureTime": "09:30",
+            "arrivalTime": "12:00",
+            "driverName": "Mr. Sharma",
+            "stops": [
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Rajpura",
+                    "coords": [
+                        30.4807,
+                        76.5919
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5555": {
+            "busNumber": "BUS-PN01-5555",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "10:00",
+            "arrivalTime": "13:00",
+            "driverName": "Mr. Gupta",
+            "stops": [
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Goraya",
+                    "coords": [
+                        31.129,
+                        75.766
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1111": {
+            "busNumber": "BUS-PB08-1111",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "11:30",
+            "arrivalTime": "15:00",
+            "driverName": "Mr. Verma",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2222": {
+            "busNumber": "BUS-PB08-2222",
+            "source": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "12:00",
+            "arrivalTime": "13:30",
+            "driverName": "Mr. Kumar",
+            "stops": [
+                {
+                    "name": "Kot Ise Khan",
+                    "coords": [
+                        30.9012,
+                        75.0312
+                    ]
+                },
+                {
+                    "name": "Talwandi Bhai",
+                    "coords": [
+                        30.7936,
+                        74.9581
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8888": {
+            "busNumber": "BUS-PN23-8888",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "07:45",
+            "arrivalTime": "09:15",
+            "driverName": "Mr. Reddy",
+            "stops": [
+                {
+                    "name": "Rampura Phul",
+                    "coords": [
+                        30.2641,
+                        75.2415
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                },
+                {
+                    "name": "Dhuri",
+                    "coords": [
+                        30.3671,
+                        75.8679
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7777": {
+            "busNumber": "BUS-PN10-7777",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "14:00",
+            "arrivalTime": "15:30",
+            "driverName": "Mr. Patel",
+            "stops": [
+                {
+                    "name": "Phillaur",
+                    "coords": [
+                        31.0261,
+                        75.7863
+                    ]
+                },
+                {
+                    "name": "Goraya",
+                    "coords": [
+                        31.129,
+                        75.766
+                    ]
+                },
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3333": {
+            "busNumber": "BUS-CH01-3333",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "15:00",
+            "arrivalTime": "16:00",
+            "driverName": "Mr. Khan",
+            "stops": [
+                {
+                    "name": "Kharar",
+                    "coords": [
+                        30.7444,
+                        76.6499
+                    ]
+                },
+                {
+                    "name": "Kurali",
+                    "coords": [
+                        30.835,
+                        76.57
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4444": {
+            "busNumber": "BUS-PB65-4444",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "16:30",
+            "arrivalTime": "17:30",
+            "driverName": "Mr. Joshi",
+            "stops": [
+                {
+                    "name": "Dinanagar",
+                    "coords": [
+                        32.1447,
+                        75.4853
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6666": {
+            "busNumber": "BUS-PB13-6666",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "10:30",
+            "arrivalTime": "11:30",
+            "driverName": "Mr. Desai",
+            "stops": [
+                {
+                    "name": "Dhuri",
+                    "coords": [
+                        30.3671,
+                        75.8679
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1235": {
+            "busNumber": "BUS-PN01-1235",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "08:30",
+            "arrivalTime": "10:00",
+            "driverName": "Mr. Menon",
+            "stops": [
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                },
+                {
+                    "name": "Kartarpur",
+                    "coords": [
+                        31.4426,
+                        75.4984
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5679": {
+            "busNumber": "BUS-GJ05-5679",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "11:00",
+            "arrivalTime": "12:30",
+            "driverName": "Mr. Iyer",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Khanna",
+                    "coords": [
+                        30.7027,
+                        76.2223
+                    ]
+                },
+                {
+                    "name": "Doraha",
+                    "coords": [
+                        30.8,
+                        76.02
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5556": {
+            "busNumber": "BUS-PN01-5556",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "13:30",
+            "arrivalTime": "16:30",
+            "driverName": "Mr. Nair",
+            "stops": [
+                {
+                    "name": "Phillaur",
+                    "coords": [
+                        31.0261,
+                        75.7863
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1112": {
+            "busNumber": "BUS-PB08-1112",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "departureTime": "14:30",
+            "arrivalTime": "18:00",
+            "driverName": "Mr. Rao",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2223": {
+            "busNumber": "BUS-PB08-2223",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "09:00",
+            "arrivalTime": "10:30",
+            "driverName": "Mr. Pillai",
+            "stops": [
+                {
+                    "name": "Kotkapura",
+                    "coords": [
+                        30.5841,
+                        74.8217
+                    ]
+                },
+                {
+                    "name": "Baghapurana",
+                    "coords": [
+                        30.6773,
+                        75.0805
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8889": {
+            "busNumber": "BUS-PN23-8889",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "17:00",
+            "arrivalTime": "18:30",
+            "driverName": "Mr. Chawla",
+            "stops": [
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                },
+                {
+                    "name": "Rampura Phul",
+                    "coords": [
+                        30.2641,
+                        75.2415
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7778": {
+            "busNumber": "BUS-PN10-7778",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "18:00",
+            "arrivalTime": "19:30",
+            "driverName": "Mr. Bedi",
+            "stops": [
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Goraya",
+                    "coords": [
+                        31.129,
+                        75.766
+                    ]
+                },
+                {
+                    "name": "Phillaur",
+                    "coords": [
+                        31.0261,
+                        75.7863
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3334": {
+            "busNumber": "BUS-CH01-3334",
+            "source": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "07:00",
+            "arrivalTime": "08:00",
+            "driverName": "Mr. Puri",
+            "stops": [
+                {
+                    "name": "Kurali",
+                    "coords": [
+                        30.835,
+                        76.57
+                    ]
+                },
+                {
+                    "name": "Kharar",
+                    "coords": [
+                        30.7444,
+                        76.6499
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4445": {
+            "busNumber": "BUS-PB65-4445",
+            "source": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "19:00",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Sood",
+            "stops": [
+                {
+                    "name": "Dinanagar",
+                    "coords": [
+                        32.1447,
+                        75.4853
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6667": {
+            "busNumber": "BUS-PB13-6667",
+            "source": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "13:00",
+            "arrivalTime": "14:00",
+            "driverName": "Mr. Tandon",
+            "stops": [
+                {
+                    "name": "Dhuri",
+                    "coords": [
+                        30.3671,
+                        75.8679
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1236": {
+            "busNumber": "BUS-PN01-1236",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "09:00",
+            "arrivalTime": "13:00",
+            "driverName": "Mr. Mehra",
+            "stops": [
+                {
+                    "name": "Tarn Taran",
+                    "coords": [
+                        31.4503,
+                        74.9259
+                    ]
+                },
+                {
+                    "name": "Harike",
+                    "coords": [
+                        31.15,
+                        74.9333
+                    ]
+                },
+                {
+                    "name": "Faridkot",
+                    "coords": [
+                        30.6752,
+                        74.7543
+                    ]
+                },
+                {
+                    "name": "Kotkapura",
+                    "coords": [
+                        30.5841,
+                        74.8217
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5680": {
+            "busNumber": "BUS-GJ05-5680",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "10:30",
+            "arrivalTime": "13:30",
+            "driverName": "Mr. Khanna",
+            "stops": [
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5557": {
+            "busNumber": "BUS-PN01-5557",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "12:00",
+            "arrivalTime": "14:00",
+            "driverName": "Mr. Bajaj",
+            "stops": [
+                {
+                    "name": "Malerkotla",
+                    "coords": [
+                        30.5253,
+                        75.8812
+                    ]
+                },
+                {
+                    "name": "Dhuri",
+                    "coords": [
+                        30.3671,
+                        75.8679
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1113": {
+            "busNumber": "BUS-PB08-1113",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "13:30",
+            "arrivalTime": "16:00",
+            "driverName": "Mr. Dhawan",
+            "stops": [
+                {
+                    "name": "Nabha",
+                    "coords": [
+                        30.37,
+                        76.15
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                },
+                {
+                    "name": "Baghapurana",
+                    "coords": [
+                        30.6773,
+                        75.0805
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2224": {
+            "busNumber": "BUS-PB08-2224",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "14:00",
+            "arrivalTime": "19:00",
+            "driverName": "Mr. Kashyap",
+            "stops": [
+                {
+                    "name": "Firozpur",
+                    "coords": [
+                        30.9231,
+                        74.6067
+                    ]
+                },
+                {
+                    "name": "Amritsar",
+                    "coords": [
+                        31.6339,
+                        74.8722
+                    ]
+                },
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8890": {
+            "busNumber": "BUS-PN23-8890",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "08:45",
+            "arrivalTime": "10:00",
+            "driverName": "Mr. Gill",
+            "stops": [
+                {
+                    "name": "Rampura Phul",
+                    "coords": [
+                        30.2641,
+                        75.2415
+                    ]
+                },
+                {
+                    "name": "Tapa",
+                    "coords": [
+                        30.3167,
+                        75.45
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7779": {
+            "busNumber": "BUS-PN10-7779",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "15:00",
+            "arrivalTime": "18:30",
+            "driverName": "Mr. Sethi",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Pathankot",
+                    "coords": [
+                        32.2687,
+                        75.6496
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3335": {
+            "busNumber": "BUS-CH01-3335",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "16:00",
+            "arrivalTime": "19:00",
+            "driverName": "Mr. Goel",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4446": {
+            "busNumber": "BUS-PB65-4446",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "17:30",
+            "arrivalTime": "21:00",
+            "driverName": "Mr. Jain",
+            "stops": [
+                {
+                    "name": "Hoshiarpur",
+                    "coords": [
+                        31.53,
+                        75.91
+                    ]
+                },
+                {
+                    "name": "Nawanshahr",
+                    "coords": [
+                        31.125,
+                        76.115
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6668": {
+            "busNumber": "BUS-PB13-6668",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "11:30",
+            "arrivalTime": "13:30",
+            "driverName": "Mr. Bhatia",
+            "stops": [
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                },
+                {
+                    "name": "Baghapurana",
+                    "coords": [
+                        30.6773,
+                        75.0805
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1237": {
+            "busNumber": "BUS-PN01-1237",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "09:30",
+            "arrivalTime": "14:30",
+            "driverName": "Mr. Mishra",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Malerkotla",
+                    "coords": [
+                        30.5253,
+                        75.8812
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5681": {
+            "busNumber": "BUS-GJ05-5681",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "12:30",
+            "arrivalTime": "15:00",
+            "driverName": "Mr. Tiwari",
+            "stops": [
+                {
+                    "name": "Nakodar",
+                    "coords": [
+                        31.126,
+                        75.474
+                    ]
+                },
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5558": {
+            "busNumber": "BUS-PN01-5558",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "14:00",
+            "arrivalTime": "18:00",
+            "driverName": "Mr. Dubey",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1114": {
+            "busNumber": "BUS-PB08-1114",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "15:30",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Pandey",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Pathankot",
+                    "coords": [
+                        32.2687,
+                        75.6496
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2225": {
+            "busNumber": "BUS-PB08-2225",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "16:00",
+            "arrivalTime": "19:30",
+            "driverName": "Mr. Chauhan",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Mohali",
+                    "coords": [
+                        30.7042,
+                        76.7179
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8891": {
+            "busNumber": "BUS-PN23-8891",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "10:45",
+            "arrivalTime": "14:45",
+            "driverName": "Mr. Sisodia",
+            "stops": [
+                {
+                    "name": "Kotkapura",
+                    "coords": [
+                        30.5841,
+                        74.8217
+                    ]
+                },
+                {
+                    "name": "Faridkot",
+                    "coords": [
+                        30.6752,
+                        74.7543
+                    ]
+                },
+                {
+                    "name": "Harike",
+                    "coords": [
+                        31.15,
+                        74.9333
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7780": {
+            "busNumber": "BUS-PN10-7780",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "16:00",
+            "arrivalTime": "17:30",
+            "driverName": "Mr. Tomar",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Kharar",
+                    "coords": [
+                        30.7444,
+                        76.6499
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3336": {
+            "busNumber": "BUS-CH01-3336",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "17:00",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Rawat",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4447": {
+            "busNumber": "BUS-PB65-4447",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "18:30",
+            "arrivalTime": "22:30",
+            "driverName": "Mr. Gusain",
+            "stops": [
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6669": {
+            "busNumber": "BUS-PB13-6669",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "departureTime": "13:30",
+            "arrivalTime": "15:00",
+            "driverName": "Mr. Negi",
+            "stops": [
+                {
+                    "name": "Bhawanigarh",
+                    "coords": [
+                        30.3951,
+                        76.0424
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1238": {
+            "busNumber": "BUS-PN01-1238",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "10:00",
+            "arrivalTime": "15:00",
+            "driverName": "Mr. Bhandari",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5682": {
+            "busNumber": "BUS-GJ05-5682",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "13:30",
+            "arrivalTime": "16:30",
+            "driverName": "Mr. Bisht",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Malerkotla",
+                    "coords": [
+                        30.5253,
+                        75.8812
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5559": {
+            "busNumber": "BUS-PN01-5559",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "15:00",
+            "arrivalTime": "17:30",
+            "driverName": "Mr. Rana",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1115": {
+            "busNumber": "BUS-PB08-1115",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "16:30",
+            "arrivalTime": "18:00",
+            "driverName": "Mr. Thapa",
+            "stops": [
+                {
+                    "name": "Sangrur",
+                    "coords": [
+                        30.2526,
+                        75.8378
+                    ]
+                },
+                {
+                    "name": "Dhuri",
+                    "coords": [
+                        30.3671,
+                        75.8679
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2226": {
+            "busNumber": "BUS-PB08-2226",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "17:00",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Gurung",
+            "stops": [
+                {
+                    "name": "Harike",
+                    "coords": [
+                        31.15,
+                        74.9333
+                    ]
+                },
+                {
+                    "name": "Tarn Taran",
+                    "coords": [
+                        31.4503,
+                        74.9259
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8892": {
+            "busNumber": "BUS-PN23-8892",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "12:45",
+            "arrivalTime": "16:15",
+            "driverName": "Mr. Rai",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7781": {
+            "busNumber": "BUS-PN10-7781",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "17:00",
+            "arrivalTime": "18:30",
+            "driverName": "Mr. Limbu",
+            "stops": [
+                {
+                    "name": "Samrala",
+                    "coords": [
+                        30.8359,
+                        76.1923
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3337": {
+            "busNumber": "BUS-CH01-3337",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "18:00",
+            "arrivalTime": "22:00",
+            "driverName": "Mr. Tamang",
+            "stops": [
+                {
+                    "name": "Ropar",
+                    "coords": [
+                        30.966,
+                        76.525
+                    ]
+                },
+                {
+                    "name": "Hoshiarpur",
+                    "coords": [
+                        31.53,
+                        75.91
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4448": {
+            "busNumber": "BUS-PB65-4448",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "19:30",
+            "arrivalTime": "22:00",
+            "driverName": "Mr. Sherpa",
+            "stops": [
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                },
+                {
+                    "name": "Batala",
+                    "coords": [
+                        31.8186,
+                        75.2023
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6670": {
+            "busNumber": "BUS-PB13-6670",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "14:30",
+            "arrivalTime": "17:30",
+            "driverName": "Mr. Verma",
+            "stops": [
+                {
+                    "name": "Malerkotla",
+                    "coords": [
+                        30.5253,
+                        75.8812
+                    ]
+                },
+                {
+                    "name": "Ahmedgarh",
+                    "coords": [
+                        30.69,
+                        75.85
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1239": {
+            "busNumber": "BUS-PN01-1239",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "11:00",
+            "arrivalTime": "15:00",
+            "driverName": "Mr. Magar",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5683": {
+            "busNumber": "BUS-GJ05-5683",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "14:30",
+            "arrivalTime": "16:30",
+            "driverName": "Mr. Shrestha",
+            "stops": [
+                {
+                    "name": "Nakodar",
+                    "coords": [
+                        31.126,
+                        75.474
+                    ]
+                },
+                {
+                    "name": "Shahkot",
+                    "coords": [
+                        31.08,
+                        75.34
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5560": {
+            "busNumber": "BUS-PN01-5560",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "16:00",
+            "arrivalTime": "18:00",
+            "driverName": "Mr. Karki",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Kot Ise Khan",
+                    "coords": [
+                        30.9012,
+                        75.0312
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1116": {
+            "busNumber": "BUS-PB08-1116",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "17:30",
+            "arrivalTime": "22:00",
+            "driverName": "Mr. Adhikari",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2227": {
+            "busNumber": "BUS-PB08-2227",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "18:00",
+            "arrivalTime": "21:00",
+            "driverName": "Mr. Bhattarai",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Nakodar",
+                    "coords": [
+                        31.126,
+                        75.474
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8893": {
+            "busNumber": "BUS-PN23-8893",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "14:45",
+            "arrivalTime": "17:15",
+            "driverName": "Mr. Yadav",
+            "stops": [
+                {
+                    "name": "Sangrur",
+                    "coords": [
+                        30.2526,
+                        75.8378
+                    ]
+                },
+                {
+                    "name": "Patiala",
+                    "coords": [
+                        30.3398,
+                        76.3869
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7782": {
+            "busNumber": "BUS-PN10-7782",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "18:00",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Singh",
+            "stops": [
+                {
+                    "name": "Malerkotla",
+                    "coords": [
+                        30.5253,
+                        75.8812
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3338": {
+            "busNumber": "BUS-CH01-3338",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "19:00",
+            "arrivalTime": "23:00",
+            "driverName": "Mr. Sharma",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4449": {
+            "busNumber": "BUS-PB65-4449",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "20:30",
+            "arrivalTime": "23:00",
+            "driverName": "Mr. Gupta",
+            "stops": [
+                {
+                    "name": "Mukerian",
+                    "coords": [
+                        31.95,
+                        75.6167
+                    ]
+                },
+                {
+                    "name": "Dasuya",
+                    "coords": [
+                        31.8167,
+                        75.65
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1240": {
+            "busNumber": "BUS-PN01-1240",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "12:00",
+            "arrivalTime": "16:00",
+            "driverName": "Mr. Kumar",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Nawanshahr",
+                    "coords": [
+                        31.125,
+                        76.115
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5684": {
+            "busNumber": "BUS-GJ05-5684",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "15:30",
+            "arrivalTime": "17:30",
+            "driverName": "Mr. Reddy",
+            "stops": [
+                {
+                    "name": "Tanda",
+                    "coords": [
+                        31.6833,
+                        75.6167
+                    ]
+                },
+                {
+                    "name": "Dasuya",
+                    "coords": [
+                        31.8167,
+                        75.65
+                    ]
+                },
+                {
+                    "name": "Mukerian",
+                    "coords": [
+                        31.95,
+                        75.6167
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5561": {
+            "busNumber": "BUS-PN01-5561",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "17:00",
+            "arrivalTime": "18:30",
+            "driverName": "Mr. Patel",
+            "stops": [
+                {
+                    "name": "Jagraon",
+                    "coords": [
+                        30.78,
+                        75.48
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1117": {
+            "busNumber": "BUS-PB08-1117",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "18:30",
+            "arrivalTime": "20:30",
+            "driverName": "Mr. Khan",
+            "stops": [
+                {
+                    "name": "Sangrur",
+                    "coords": [
+                        30.2526,
+                        75.8378
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                },
+                {
+                    "name": "Kotkapura",
+                    "coords": [
+                        30.5841,
+                        74.8217
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2228": {
+            "busNumber": "BUS-PB08-2228",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "19:00",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Joshi",
+            "stops": [
+                {
+                    "name": "Kotkapura",
+                    "coords": [
+                        30.5841,
+                        74.8217
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8894": {
+            "busNumber": "BUS-PN23-8894",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "16:45",
+            "arrivalTime": "22:15",
+            "driverName": "Mr. Desai",
+            "stops": [
+                {
+                    "name": "Faridkot",
+                    "coords": [
+                        30.6752,
+                        74.7543
+                    ]
+                },
+                {
+                    "name": "Amritsar",
+                    "coords": [
+                        31.6339,
+                        74.8722
+                    ]
+                },
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7783": {
+            "busNumber": "BUS-PN10-7783",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "19:00",
+            "arrivalTime": "20:30",
+            "driverName": "Mr. Menon",
+            "stops": [
+                {
+                    "name": "Raikot",
+                    "coords": [
+                        30.65,
+                        75.6
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3339": {
+            "busNumber": "BUS-CH01-3339",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "20:00",
+            "arrivalTime": "22:00",
+            "driverName": "Mr. Iyer",
+            "stops": [
+                {
+                    "name": "Patiala",
+                    "coords": [
+                        30.3398,
+                        76.3869
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4450": {
+            "busNumber": "BUS-PB65-4450",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "departureTime": "21:30",
+            "arrivalTime": "02:00",
+            "driverName": "Mr. Nair",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6672": {
+            "busNumber": "BUS-PB13-6672",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "18:30",
+            "arrivalTime": "23:30",
+            "driverName": "Mr. Rao",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1241": {
+            "busNumber": "BUS-PN01-1241",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "13:00",
+            "arrivalTime": "15:00",
+            "driverName": "Mr. Pillai",
+            "stops": [
+                {
+                    "name": "Batala",
+                    "coords": [
+                        31.8186,
+                        75.2023
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5685": {
+            "busNumber": "BUS-GJ05-5685",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "16:30",
+            "arrivalTime": "18:30",
+            "driverName": "Mr. Chawla",
+            "stops": [
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Nawanshahr",
+                    "coords": [
+                        31.125,
+                        76.115
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5562": {
+            "busNumber": "BUS-PN01-5562",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "18:00",
+            "arrivalTime": "21:00",
+            "driverName": "Mr. Bedi",
+            "stops": [
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Batala",
+                    "coords": [
+                        31.8186,
+                        75.2023
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1118": {
+            "busNumber": "BUS-PB08-1118",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "19:30",
+            "arrivalTime": "21:30",
+            "driverName": "Mr. Puri",
+            "stops": [
+                {
+                    "name": "Sangrur",
+                    "coords": [
+                        30.2526,
+                        75.8378
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2229": {
+            "busNumber": "BUS-PB08-2229",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "20:00",
+            "arrivalTime": "22:00",
+            "driverName": "Mr. Sood",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8895": {
+            "busNumber": "BUS-PN23-8895",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "18:45",
+            "arrivalTime": "21:45",
+            "driverName": "Mr. Tandon",
+            "stops": [
+                {
+                    "name": "Patiala",
+                    "coords": [
+                        30.3398,
+                        76.3869
+                    ]
+                },
+                {
+                    "name": "Mohali",
+                    "coords": [
+                        30.7042,
+                        76.7179
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7784": {
+            "busNumber": "BUS-PN10-7784",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "20:00",
+            "arrivalTime": "23:59",
+            "driverName": "Mr. Mehra",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Mukerian",
+                    "coords": [
+                        31.95,
+                        75.6167
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3340": {
+            "busNumber": "BUS-CH01-3340",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "21:00",
+            "arrivalTime": "23:00",
+            "driverName": "Mr. Khanna",
+            "stops": [
+                {
+                    "name": "Patiala",
+                    "coords": [
+                        30.3398,
+                        76.3869
+                    ]
+                },
+                {
+                    "name": "Sangrur",
+                    "coords": [
+                        30.2526,
+                        75.8378
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4451": {
+            "busNumber": "BUS-PB65-4451",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "22:30",
+            "arrivalTime": "04:00",
+            "driverName": "Mr. Bajaj",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6673": {
+            "busNumber": "BUS-PB13-6673",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "20:30",
+            "arrivalTime": "22:30",
+            "driverName": "Mr. Dhawan",
+            "stops": [
+                {
+                    "name": "Patiala",
+                    "coords": [
+                        30.3398,
+                        76.3869
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1242": {
+            "busNumber": "BUS-PN01-1242",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "14:00",
+            "arrivalTime": "17:00",
+            "driverName": "Mr. Kashyap",
+            "stops": [
+                {
+                    "name": "Harike",
+                    "coords": [
+                        31.15,
+                        74.9333
+                    ]
+                },
+                {
+                    "name": "Zira",
+                    "coords": [
+                        30.9686,
+                        74.9933
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5686": {
+            "busNumber": "BUS-GJ05-5686",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "17:30",
+            "arrivalTime": "19:30",
+            "driverName": "Mr. Gill",
+            "stops": [
+                {
+                    "name": "Nakodar",
+                    "coords": [
+                        31.126,
+                        75.474
+                    ]
+                },
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5563": {
+            "busNumber": "BUS-PN01-5563",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "19:00",
+            "arrivalTime": "21:00",
+            "driverName": "Mr. Sethi",
+            "stops": [
+                {
+                    "name": "Jagraon",
+                    "coords": [
+                        30.78,
+                        75.48
+                    ]
+                },
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1119": {
+            "busNumber": "BUS-PB08-1119",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Barnala",
+                "coords": [
+                    30.3782,
+                    75.5422
+                ]
+            },
+            "departureTime": "20:30",
+            "arrivalTime": "22:00",
+            "driverName": "Mr. Goel",
+            "stops": [
+                {
+                    "name": "Sangrur",
+                    "coords": [
+                        30.2526,
+                        75.8378
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2230": {
+            "busNumber": "BUS-PB08-2230",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "21:00",
+            "arrivalTime": "23:59",
+            "driverName": "Mr. Jain",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Mohali",
+                    "coords": [
+                        30.7042,
+                        76.7179
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8896": {
+            "busNumber": "BUS-PN23-8896",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "20:45",
+            "arrivalTime": "02:15",
+            "driverName": "Mr. Bhatia",
+            "stops": [
+                {
+                    "name": "Amritsar",
+                    "coords": [
+                        31.6339,
+                        74.8722
+                    ]
+                },
+                {
+                    "name": "Batala",
+                    "coords": [
+                        31.8186,
+                        75.2023
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7785": {
+            "busNumber": "BUS-PN10-7785",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "21:00",
+            "arrivalTime": "23:59",
+            "driverName": "Mr. Mishra",
+            "stops": [
+                {
+                    "name": "Phagwara",
+                    "coords": [
+                        31.2181,
+                        75.7725
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3341": {
+            "busNumber": "BUS-CH01-3341",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "22:00",
+            "arrivalTime": "23:59",
+            "driverName": "Mr. Tiwari",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jagraon",
+                    "coords": [
+                        30.78,
+                        75.48
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4452": {
+            "busNumber": "BUS-PB65-4452",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "23:30",
+            "arrivalTime": "05:00",
+            "driverName": "Mr. Dubey",
+            "stops": [
+                {
+                    "name": "Amritsar",
+                    "coords": [
+                        31.6339,
+                        74.8722
+                    ]
+                },
+                {
+                    "name": "Faridkot",
+                    "coords": [
+                        30.6752,
+                        74.7543
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6674": {
+            "busNumber": "BUS-PB13-6674",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "22:30",
+            "arrivalTime": "04:30",
+            "driverName": "Mr. Pandey",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1243": {
+            "busNumber": "BUS-PN01-1243",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "15:00",
+            "arrivalTime": "18:00",
+            "driverName": "Mr. Chauhan",
+            "stops": [
+                {
+                    "name": "Tarn Taran",
+                    "coords": [
+                        31.4503,
+                        74.9259
+                    ]
+                },
+                {
+                    "name": "Harike",
+                    "coords": [
+                        31.15,
+                        74.9333
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5687": {
+            "busNumber": "BUS-GJ05-5687",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "departureTime": "18:30",
+            "arrivalTime": "21:30",
+            "driverName": "Mr. Sisodia",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5564": {
+            "busNumber": "BUS-PN01-5564",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Ropar",
+                "coords": [
+                    30.966,
+                    76.525
+                ]
+            },
+            "departureTime": "20:00",
+            "arrivalTime": "21:30",
+            "driverName": "Mr. Tomar",
+            "stops": [
+                {
+                    "name": "Samrala",
+                    "coords": [
+                        30.8359,
+                        76.1923
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1120": {
+            "busNumber": "BUS-PB08-1120",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "departureTime": "21:30",
+            "arrivalTime": "23:00",
+            "driverName": "Mr. Rawat",
+            "stops": [
+                {
+                    "name": "Bhawanigarh",
+                    "coords": [
+                        30.3951,
+                        76.0424
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2231": {
+            "busNumber": "BUS-PB08-2231",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "22:00",
+            "arrivalTime": "01:00",
+            "driverName": "Mr. Gusain",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8897": {
+            "busNumber": "BUS-PN23-8897",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "22:45",
+            "arrivalTime": "02:45",
+            "driverName": "Mr. Negi",
+            "stops": [
+                {
+                    "name": "Faridkot",
+                    "coords": [
+                        30.6752,
+                        74.7543
+                    ]
+                },
+                {
+                    "name": "Tarn Taran",
+                    "coords": [
+                        31.4503,
+                        74.9259
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7786": {
+            "busNumber": "BUS-PN10-7786",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "22:00",
+            "arrivalTime": "02:00",
+            "driverName": "Mr. Bhandari",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Dasuya",
+                    "coords": [
+                        31.8167,
+                        75.65
+                    ]
+                },
+                {
+                    "name": "Mukerian",
+                    "coords": [
+                        31.95,
+                        75.6167
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3342": {
+            "busNumber": "BUS-CH01-3342",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "departureTime": "23:00",
+            "arrivalTime": "00:30",
+            "driverName": "Mr. Bisht",
+            "stops": [
+                {
+                    "name": "Rajpura",
+                    "coords": [
+                        30.4807,
+                        76.5919
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4453": {
+            "busNumber": "BUS-PB65-4453",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "00:30",
+            "arrivalTime": "04:30",
+            "driverName": "Mr. Rana",
+            "stops": [
+                {
+                    "name": "Hoshiarpur",
+                    "coords": [
+                        31.53,
+                        75.91
+                    ]
+                },
+                {
+                    "name": "Ropar",
+                    "coords": [
+                        30.966,
+                        76.525
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6675": {
+            "busNumber": "BUS-PB13-6675",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "departureTime": "23:30",
+            "arrivalTime": "05:30",
+            "driverName": "Mr. Thapa",
+            "stops": [
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Gurdaspur",
+                    "coords": [
+                        32.0428,
+                        75.4057
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-1244": {
+            "busNumber": "BUS-PN01-1244",
+            "source": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "destination": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "departureTime": "16:00",
+            "arrivalTime": "20:00",
+            "driverName": "Mr. Gurung",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                },
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                }
+            ]
+        },
+        "BUS-GJ05-5688": {
+            "busNumber": "BUS-GJ05-5688",
+            "source": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "destination": {
+                "name": "Amritsar",
+                "coords": [
+                    31.6339,
+                    74.8722
+                ]
+            },
+            "departureTime": "19:30",
+            "arrivalTime": "21:00",
+            "driverName": "Mr. Rai",
+            "stops": [
+                {
+                    "name": "Kartarpur",
+                    "coords": [
+                        31.4426,
+                        75.4984
+                    ]
+                },
+                {
+                    "name": "Beas",
+                    "coords": [
+                        31.5177,
+                        75.2916
+                    ]
+                }
+            ]
+        },
+        "BUS-PN01-5565": {
+            "busNumber": "BUS-PN01-5565",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "departureTime": "21:00",
+            "arrivalTime": "22:30",
+            "driverName": "Mr. Limbu",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Kharar",
+                    "coords": [
+                        30.7444,
+                        76.6499
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-1121": {
+            "busNumber": "BUS-PB08-1121",
+            "source": {
+                "name": "Patiala",
+                "coords": [
+                    30.3398,
+                    76.3869
+                ]
+            },
+            "destination": {
+                "name": "Jalandhar",
+                "coords": [
+                    31.326,
+                    75.5762
+                ]
+            },
+            "departureTime": "22:30",
+            "arrivalTime": "00:30",
+            "driverName": "Mr. Tamang",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                },
+                {
+                    "name": "Ludhiana",
+                    "coords": [
+                        30.901,
+                        75.8573
+                    ]
+                }
+            ]
+        },
+        "BUS-PB08-2232": {
+            "busNumber": "BUS-PB08-2232",
+            "source": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "destination": {
+                "name": "Gurdaspur",
+                "coords": [
+                    32.0428,
+                    75.4057
+                ]
+            },
+            "departureTime": "23:00",
+            "arrivalTime": "03:00",
+            "driverName": "Mr. Sherpa",
+            "stops": [
+                {
+                    "name": "Amritsar",
+                    "coords": [
+                        31.6339,
+                        74.8722
+                    ]
+                },
+                {
+                    "name": "Batala",
+                    "coords": [
+                        31.8186,
+                        75.2023
+                    ]
+                }
+            ]
+        },
+        "BUS-PN23-8898": {
+            "busNumber": "BUS-PN23-8898",
+            "source": {
+                "name": "Bathinda",
+                "coords": [
+                    30.211,
+                    74.9455
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "23:45",
+            "arrivalTime": "01:00",
+            "driverName": "Mr. Ghale",
+            "stops": [
+                {
+                    "name": "Goniana",
+                    "coords": [
+                        30.3167,
+                        74.9167
+                    ]
+                }
+            ]
+        },
+        "BUS-PN10-7787": {
+            "busNumber": "BUS-PN10-7787",
+            "source": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "23:00",
+            "arrivalTime": "01:00",
+            "driverName": "Mr. Shrestha",
+            "stops": [
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                }
+            ]
+        },
+        "BUS-CH01-3343": {
+            "busNumber": "BUS-CH01-3343",
+            "source": {
+                "name": "Mohali",
+                "coords": [
+                    30.7042,
+                    76.7179
+                ]
+            },
+            "destination": {
+                "name": "Ludhiana",
+                "coords": [
+                    30.901,
+                    75.8573
+                ]
+            },
+            "departureTime": "00:00",
+            "arrivalTime": "01:30",
+            "driverName": "Mr. Karki",
+            "stops": [
+                {
+                    "name": "Sirhind",
+                    "coords": [
+                        30.621,
+                        76.3888
+                    ]
+                }
+            ]
+        },
+        "BUS-PB65-4454": {
+            "busNumber": "BUS-PB65-4454",
+            "source": {
+                "name": "Pathankot",
+                "coords": [
+                    32.2687,
+                    75.6496
+                ]
+            },
+            "destination": {
+                "name": "Moga",
+                "coords": [
+                    30.8038,
+                    75.1713
+                ]
+            },
+            "departureTime": "01:30",
+            "arrivalTime": "06:00",
+            "driverName": "Mr. Adhikari",
+            "stops": [
+                {
+                    "name": "Jalandhar",
+                    "coords": [
+                        31.326,
+                        75.5762
+                    ]
+                },
+                {
+                    "name": "Nakodar",
+                    "coords": [
+                        31.126,
+                        75.474
+                    ]
+                }
+            ]
+        },
+        "BUS-PB13-6676": {
+            "busNumber": "BUS-PB13-6676",
+            "source": {
+                "name": "Sangrur",
+                "coords": [
+                    30.2526,
+                    75.8378
+                ]
+            },
+            "destination": {
+                "name": "Faridkot",
+                "coords": [
+                    30.6752,
+                    74.7543
+                ]
+            },
+            "departureTime": "00:30",
+            "arrivalTime": "03:00",
+            "driverName": "Mr. Bhattarai",
+            "stops": [
+                {
+                    "name": "Barnala",
+                    "coords": [
+                        30.3782,
+                        75.5422
+                    ]
+                },
+                {
+                    "name": "Moga",
+                    "coords": [
+                        30.8038,
+                        75.1713
+                    ]
+                }
+            ]
+        }
+    }
+}

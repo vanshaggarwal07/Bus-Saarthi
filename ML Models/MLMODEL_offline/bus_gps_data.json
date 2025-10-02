@@ -1,0 +1,106 @@
+[
+  {
+    "bus_id": "BUS-PB-101",
+    "route_id": "RT-A-PB",
+    "trip_id": "TRIP-PB-101-AMR",
+    "source": "Amritsar",
+    "destination": "Jalandhar",
+    "data": [
+      {
+        "timestamp": "2025-09-18T06:00:00Z",
+        "latitude": 31.6340,
+        "longitude": 74.8723,
+        "speed": 0.0,
+        "heading": 0
+      },
+      {
+        "timestamp": "2025-09-18T06:05:00Z",
+        "latitude": 31.6385,
+        "longitude": 74.8801,
+        "speed": 45.0,
+        "heading": 60
+      },
+      {
+        "timestamp": "2025-09-18T06:10:00Z",
+        "latitude": 31.6450,
+        "longitude": 74.8890,
+        "speed": 55.5,
+        "heading": 55
+      },
+      {
+        "timestamp": "2025-09-18T06:15:00Z",
+        "latitude": 31.6521,
+        "longitude": 74.8988,
+        "speed": 62.1,
+        "heading": 50
+      }
+    ]
+  },
+  {
+    "bus_id": "BUS-PB-102",
+    "route_id": "RT-B-PB",
+    "trip_id": "TRIP-PB-102-LDH",
+    "source": "Ludhiana",
+    "destination": "Patiala",
+    "data": [
+      {
+        "timestamp": "2025-09-18T07:30:00Z",
+        "latitude": 30.8936,
+        "longitude": 75.8344,
+        "speed": 0.0,
+        "heading": 0
+      },
+      {
+        "timestamp": "2025-09-18T07:35:00Z",
+        "latitude": 30.8890,
+        "longitude": 75.8421,
+        "speed": 35.5,
+        "heading": 210
+      },
+      {
+        "timestamp": "2025-09-18T07:40:00Z",
+        "latitude": 30.8825,
+        "longitude": 75.8505,
+        "speed": 40.2,
+        "heading": 200
+      },
+      {
+        "timestamp": "2025-09-18T07:45:00Z",
+        "latitude": 30.8755,
+        "longitude": 75.8580,
+        "speed": 48.0,
+        "heading": 195
+      }
+    ]
+  },
+  {
+    "bus_id": "BUS-PB-103",
+    "route_id": "RT-A-PB",
+    "trip_id": "TRIP-PB-103-LDH",
+    "source": "Jalandhar",
+    "destination": "Amritsar",
+    "data": [
+      {
+        "timestamp": "2025-09-18T08:15:00Z",
+        "latitude": 31.3260,
+        "longitude": 75.5762,
+        "speed": 0.0,
+        "heading": 0
+      },
+      {
+        "timestamp": "2025-09-18T08:20:00Z",
+        "latitude": 31.3325,
+        "longitude": 75.5685,
+        "speed": 50.0,
+        "heading": 300
+      },
+      {
+        "timestamp": "2025-09-18T08:25:00Z",
+        "latitude": 31.3398,
+        "longitude": 75.5601,
+        "speed": 60.3,
+        "heading": 310
+      }
+    ]
+  }
+]

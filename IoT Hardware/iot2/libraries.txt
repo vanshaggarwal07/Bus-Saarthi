@@ -1,0 +1,17 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+GPS
+TinyGPSPlus
+LoRa
+AllThingsTalk LoRaWAN SDK
+ATOM_DTU_LoRaWAN
+Adafruit Flora Pixel Library
+Alteriom_EByte_LoRa_E220
+E220-900T22S LoRa library
+EByte LoRa E220 library
+EByte LoRa E32 library
+LoRa Serialization
+STM32duinoLoRaWAN
+MCCI Arduino LoRaWAN Library
+LoRaWAN_ESP32
