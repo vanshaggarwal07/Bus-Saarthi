@@ -57,7 +57,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/Bus-Saarthi.git
+   git clone https://github.com/vanshaggarwal07/Bus-Saarthi.git
    cd Bus-Saarthi
    ```
 
@@ -75,9 +75,12 @@
 3. **Environment Setup**
    - Create a `.env` file in the `server` directory with the following variables:
      ```env
-     MONGODB_URI=your_mongodb_connection_string
-     PORT=5000
-     NODE_ENV=development
+     ATLAS_URI="mongodb+srv://admin:cHRdtZXGL3WKMQF2@cluster0.v5sk412.mongodb.net/punjab_yatra?retryWrites=true&w=majority&appName=Cluster0"
+MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic3RhcmsxMjM0IiwiYSI6ImNtZmh5cWVubzBqMXoyaXF0aDNneGg5OWQifQ._dySBvjJtseB2Y6t_iquUA"
+PORT=5000
+API_URL='http://localhost:5000/buses'
+API_BASE='http://localhost:5000'
+# +const API_URL =${API_BASE}/buses
      ```
 
 4. **Running the Application**
@@ -139,8 +142,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 📧 Contact
 
 Gmail - mailto:vanshaggarwal07@gmail.com
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - your.email@example.com
 
 Project Link: [https://github.com/vanshaggarwal07/Bus-Saarthi](https://github.com/vanshaggarwal07/Bus-Saarthi)
 
