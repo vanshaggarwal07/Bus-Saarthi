@@ -75,11 +75,13 @@
 3. **Environment Setup**
    - Create a `.env` file in the `server` directory with the following variables:
      ```env
-     ATLAS_URI="mongodb+srv://admin:cHRdtZXGL3WKMQF2@cluster0.v5sk412.mongodb.net/punjab_yatra?retryWrites=true&w=majority&appName=Cluster0"
-     MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic3RhcmsxMjM0IiwiYSI6ImNtZmh5cWVubzBqMXoyaXF0aDNneGg5OWQifQ._dySBvjJtseB2Y6t_iquUA"
+     ATLAS_URI=" "
+     MAPBOX_ACCESS_TOKEN = " "
      PORT=5000
      API_URL='http://localhost:5000/buses'
      API_BASE='http://localhost:5000'
+
+     available in server as .env.file (just copy paste)
      ```
 
 4. **Running the Application**
